@@ -12,15 +12,13 @@ export default function Privacy() {
   return (
     <>
       <Header />
-      <main className="legal-page container">
+      <main className="legal-page page-width">
         <Link className="text-link" href="/">
           ← Back to Theatre
         </Link>
-        <p className="eyebrow">A LITTLE CLARITY</p>
         <h1>Privacy.</h1>
         <p className="legal-lead">
-          Your collection belongs to you. Here’s what happens when you visit
-          this site or use Theatre.
+          How this website and the Mac app handle your data.
         </p>
         <h2>This website</h2>
         <p>

@@ -1,11 +1,8 @@
 import {
   ArrowRight,
   ArrowUpRight,
-  Check,
-  Film,
+  AudioLines,
   FolderDown,
-  Heart,
-  Monitor,
   Play,
   Subtitles,
 } from "lucide-react";
@@ -16,334 +13,243 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { AppPreview, DownloadButton, Footer, Header } from "./components";
 import { appRelease } from "./links";
 
-const features = [
-  {
-    icon: Film,
-    title: "Press play. On more formats.",
-    text: "MKV, MP4, MOV, and more. VLC’s playback engine is built right in, with audio and subtitle tracks at your fingertips.",
-  },
-  {
-    icon: FolderDown,
-    title: "A little less internet required.",
-    text: "Download a movie or episode from your server and take it with you. Your saved progress syncs when you reconnect.",
-  },
-  {
-    icon: Subtitles,
-    title: "Just the way you watch.",
-    text: "Choose your language. Make subtitles your own. Settle into a separate player window that fits your video.",
-  },
-];
-
 const questions = [
   {
-    title: "What do I need to get started?",
+    title: "What do I need?",
     answer:
-      "An Apple Silicon Mac (M1 or later), a Jellyfin server, and an account on that server. Theatre connects using your server address, username, and password. Your sign-in is saved securely in Keychain.",
+      "An Apple Silicon Mac, macOS 13 or later, and an account on a Jellyfin server. Enter your server address and sign in. Theatre saves your session in Keychain.",
   },
   {
-    title: "Is Theatre free?",
+    title: "Does it come with movies or shows?",
     answer:
-      "Yes. Theatre is free to download and open source under GPLv3. The code is on GitHub, where you can follow development, report an issue, or contribute.",
+      "No. Theatre plays media from your Jellyfin server. It doesn’t include a server, movies, or shows.",
   },
   {
-    title: "Do I need to install VLC too?",
+    title: "Is it free?",
     answer:
-      "No. Everything needed for VLC playback is already bundled inside Theatre. Just download the DMG and drag Theatre into Applications. Source-code downloads are only for developers and license compliance.",
+      "Yes. Theatre is free and open source under GPLv3. You can read the code, report issues, or contribute on GitHub.",
   },
   {
-    title: "Does Theatre include movies or shows?",
+    title: "Do I need to install VLC?",
     answer:
-      "Theatre is a player for your own Jellyfin library. No movies, shows, or server are included. Artwork, metadata, and your media come from the Jellyfin server you connect to.",
+      "No. The playback engine is included. Download the DMG and drag Theatre into Applications.",
   },
   {
-    title: "Which macOS versions are supported?",
+    title: "What should I know about the beta?",
     answer:
-      "The first beta is built for Apple Silicon and targets macOS 13 or later. Hands-on testing has been on macOS 27.2; older macOS versions and Intel Macs have not yet been verified. HDR accuracy, surround output, and AirPlay also need further hardware checks.",
+      "This build is for Apple Silicon. It has been tested on macOS 27.2; older macOS versions and Intel Macs haven’t been verified. HDR, surround sound, and AirPlay still need hardware testing.",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      <a href="#main" className="skip-link">
+      <a className="skip-link" href="#main">
         Skip to content
       </a>
       <Header />
       <main id="main">
-        <section className="hero container" aria-labelledby="hero-title">
-          <a href={appRelease.notes} className="release-badge">
-            <span className="status-dot" />
-            THEATRE {appRelease.version} <span className="badge-divider" />{" "}
-            PUBLIC BETA
-            <ArrowUpRight size={12} aria-hidden="true" />
-          </a>
-          <h1 id="hero-title">
-            Your Jellyfin library.
-            <br />
-            <span>A better seat.</span>
-          </h1>
-          <p className="hero-description">
-            The movies you love. The shows you can’t leave.
-            <br className="desktop-break" /> A beautifully native place to watch
-            them on your Mac.
-          </p>
-          <div className="hero-actions">
-            <DownloadButton />
-            <Button
-              asChild
-              variant="outline"
-              className="button h-12 rounded-full border-white/15 bg-white/[0.01] px-6 text-[13px] text-[#d1ccc7] transition-transform hover:-translate-y-0.5 hover:bg-white/5"
-            >
-              <a href={appRelease.repository}>
-                View on GitHub <ArrowUpRight size={16} aria-hidden="true" />
+        <section className="hero page-width" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <a href={appRelease.notes} className="release-label">
+              <span className="status-dot" />
+              Version {appRelease.version} · Public beta
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+            <h1 id="hero-title">
+              Jellyfin on
+              <br />
+              your Mac.
+            </h1>
+            <p>
+              Watch movies and shows from your Jellyfin server. A native Mac app
+              with offline downloads.
+            </p>
+            <div className="hero-actions">
+              <DownloadButton />
+              <a className="text-link" href={appRelease.repository}>
+                View on GitHub
+                <ArrowUpRight size={15} aria-hidden="true" />
               </a>
-            </Button>
+            </div>
+            <p className="download-note">
+              Free and open source. Apple Silicon · macOS 13+
+            </p>
           </div>
-          <p className="download-note">
-            Free & open source <span>·</span> Apple Silicon <span>·</span> v
-            {appRelease.version}
-          </p>
-          <div className="hero-preview">
+          <div className="hero-art">
             <AppPreview />
           </div>
         </section>
 
         <section
-          className="essentials container"
-          aria-label="Theatre essentials"
-        >
-          <span>
-            <Monitor size={17} aria-hidden="true" /> Native to macOS
-          </span>
-          <span>
-            <Play size={16} aria-hidden="true" /> Made for Jellyfin
-          </span>
-          <span>
-            <Heart size={16} aria-hidden="true" /> Free & open source
-          </span>
-        </section>
-
-        <section
           id="features"
-          className="features-section container"
-          aria-labelledby="features-title"
+          className="features page-width"
+          aria-label="Features"
         >
-          <div className="section-intro">
-            <div>
-              <p className="eyebrow">LESS BROWSING. MORE WATCHING.</p>
-              <h2 id="features-title">
-                Everything you came for.
-                <br />
-                <span>Right where it belongs.</span>
-              </h2>
-            </div>
-            <p>
-              A home for your collection, a place to pick up where you left off,
-              and a player that gets out of the way.
-            </p>
-          </div>
-          <div className="story-card">
-            <div className="story-copy">
-              <span className="small-icon">
-                <Play size={19} aria-hidden="true" />
-              </span>
-              <p className="eyebrow">ONE MORE EPISODE?</p>
-              <h3>
-                Pick up the story.
-                <br />
-                <span>We’ll keep your place.</span>
-              </h3>
+          <article className="library-feature feature-panel">
+            <div className="feature-heading">
+              <h2>Movies and shows, together.</h2>
               <p>
-                Seasons together. Episodes in order. Resume an unfinished
-                episode or start the next one, with automatic continuation when
-                it ends.
+                Browse your library, pick a season, and keep watching.
+                <br className="desktop-break" /> Your progress stays in sync
+                with Jellyfin.
               </p>
-              <ul className="check-list">
-                <li>
-                  <Check size={15} aria-hidden="true" /> A dedicated page for
-                  every show
-                </li>
-                <li>
-                  <Check size={15} aria-hidden="true" /> Your watch progress,
-                  synced with Jellyfin
-                </li>
-                <li>
-                  <Check size={15} aria-hidden="true" /> Skip Intro when your
-                  server provides it
-                </li>
-              </ul>
             </div>
-            <a
-              className="story-image"
-              href="/images/theatre-shows.webp"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="View the full-size Theatre show detail screenshot"
-            >
-              <Image
-                src="/images/theatre-shows.webp"
-                alt="Theatre’s Rick and Morty detail page with artwork, a play action, season selector, and episode cards."
-                width={2000}
-                height={1109}
-                sizes="(max-width: 800px) 90vw, 760px"
-              />
-              <span className="image-caption">
-                All your seasons. One good place.
-                <ArrowUpRight size={14} aria-hidden="true" />
-              </span>
-            </a>
-          </div>
-          <div className="feature-list">
-            {features.map(({ icon: Icon, title, text }) => (
-              <article key={title}>
-                <Icon size={23} strokeWidth={1.4} aria-hidden="true" />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="getting-started" aria-labelledby="start-title">
-          <div className="container">
-            <div className="section-intro">
+            <div className="library-preview">
+              <AppPreview show />
+            </div>
+          </article>
+          <div className="feature-pair">
+            <article className="feature-panel offline-feature">
               <div>
-                <p className="eyebrow">YOUR SERVER. YOUR COLLECTION.</p>
-                <h2 id="start-title">
-                  Bring your library.
-                  <br />
-                  <span>Make yourself at home.</span>
-                </h2>
+                <h2>Watch without a connection.</h2>
+                <p>
+                  Download movies and episodes from your server.
+                  <br className="desktop-break" /> Your progress syncs when you
+                  reconnect.
+                </p>
               </div>
-              <a className="text-link" href="https://jellyfin.org/">
-                New to Jellyfin? <ArrowUpRight size={15} aria-hidden="true" />
-              </a>
+              <div className="offline-art" aria-hidden="true">
+                <FolderDown size={106} strokeWidth={0.9} />
+                <span>Saved on your Mac.</span>
+              </div>
+            </article>
+            <article className="feature-panel formats-feature">
+              <div className="format-art" aria-hidden="true">
+                <span>.mkv</span>
+                <span>.mp4</span>
+                <span>.mov</span>
+              </div>
+              <div>
+                <h2>Play more formats.</h2>
+                <p>
+                  VLC playback is built in. Choose audio tracks, adjust
+                  subtitles, and play in a separate window.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div className="feature-notes">
+            <div>
+              <Play size={18} aria-hidden="true" />
+              <h3>Keep watching</h3>
+              <p>Resume a video or play the next episode automatically.</p>
             </div>
-            <ol className="steps">
-              <li>
-                <span className="step-number">01</span>
-                <h3>Meet Theatre.</h3>
-                <p>
-                  Download the DMG and move Theatre into your Applications
-                  folder.
-                </p>
-              </li>
-              <li>
-                <span className="step-number">02</span>
-                <h3>Connect your Jellyfin.</h3>
-                <p>
-                  Enter your server address and sign in. Your session stays
-                  saved in Keychain.
-                </p>
-              </li>
-              <li>
-                <span className="step-number">03</span>
-                <h3>Find your next watch.</h3>
-                <p>
-                  Browse your collection, choose something good, and press play.
-                </p>
-              </li>
-            </ol>
+            <div>
+              <Subtitles size={18} aria-hidden="true" />
+              <h3>Adjust your subtitles</h3>
+              <p>Change their language, size, color, and position.</p>
+            </div>
+            <div>
+              <AudioLines size={18} aria-hidden="true" />
+              <h3>Choose your audio</h3>
+              <p>Switch tracks and save your preferred language.</p>
+            </div>
           </div>
         </section>
 
         <section
-          className="open-section container"
-          aria-labelledby="open-title"
+          className="setup-section page-width"
+          aria-labelledby="setup-title"
         >
-          <div>
-            <p className="eyebrow">OPEN SOURCE. OPEN POSSIBILITIES.</p>
-            <h2 id="open-title">
-              Your library deserves
-              <br />
-              <span>a player of its own.</span>
-            </h2>
+          <div className="section-heading">
+            <h2 id="setup-title">Connect your server.</h2>
+            <p>A Jellyfin account is all you need.</p>
           </div>
-          <div className="open-copy">
-            <p>
-              Theatre is an independent project built for people who keep their
-              own collection. Free to use, open to explore, and getting better
-              with every release.
-            </p>
-            <a className="text-link" href={appRelease.repository}>
-              Take a look around GitHub{" "}
-              <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-          </div>
+          <ol className="setup-steps">
+            <li>
+              <span>01</span>
+              <h3>Install Theatre</h3>
+              <p>Open the DMG and drag Theatre into Applications.</p>
+            </li>
+            <li>
+              <span>02</span>
+              <h3>Sign in</h3>
+              <p>Enter your Jellyfin server address, username, and password.</p>
+            </li>
+            <li>
+              <span>03</span>
+              <h3>Press play</h3>
+              <p>
+                Your library loads from your server. Choose a title to start.
+              </p>
+            </li>
+          </ol>
         </section>
 
         <section
           id="questions"
-          className="faq-section container"
+          className="questions-section page-width"
           aria-labelledby="faq-title"
         >
-          <div>
-            <p className="eyebrow">BEFORE YOU PRESS PLAY</p>
-            <h2 id="faq-title">
-              A few good
-              <br />
-              <span>questions.</span>
-            </h2>
+          <div className="section-heading">
+            <h2 id="faq-title">A few questions.</h2>
+            <p>What to know before you download.</p>
           </div>
-          <Accordion
-            type="multiple"
-            className="questions border-t border-white/8"
-          >
+          <Accordion type="single" collapsible className="questions">
             {questions.map(({ title, answer }) => (
               <AccordionItem key={title} value={title}>
-                <AccordionTrigger className="items-center py-5 text-[13px] font-normal text-[#d8d0c9] hover:no-underline">
-                  {title}
-                </AccordionTrigger>
-                <AccordionContent className="max-w-[96%] pb-6 text-xs leading-[1.95] text-[#9d958f]">
-                  {answer}
-                </AccordionContent>
+                <AccordionTrigger>{title}</AccordionTrigger>
+                <AccordionContent>{answer}</AccordionContent>
               </AccordionItem>
             ))}
             <AccordionItem value="macos-approval">
-              <AccordionTrigger className="items-center py-5 text-[13px] font-normal text-[#d8d0c9] hover:no-underline">
-                Why does macOS ask me to approve Theatre?
+              <AccordionTrigger>
+                Why does macOS ask me to approve it?
               </AccordionTrigger>
-              <AccordionContent className="max-w-[96%] pb-6 text-xs leading-[1.95] text-[#9d958f] [&_a]:text-[#d4b7a5] [&_a]:underline">
-                This public beta is not yet notarized by Apple. After attempting
-                to open it, macOS may require approval in System Settings →
-                Privacy & Security → Open Anyway. Follow{" "}
+              <AccordionContent>
+                This beta isn’t notarized by Apple yet. After opening it, you
+                may need to allow it in System Settings → Privacy &amp; Security
+                → Open Anyway. Follow{" "}
                 <a href="https://support.apple.com/en-us/102445">
                   Apple’s instructions
                 </a>{" "}
-                and only approve a download you trust. This is an early beta;{" "}
-                <a href={appRelease.notes}>read the release notes</a> for
-                current limitations.
+                and only approve a download you trust.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
         </section>
 
         <section
-          className="closing-section container"
+          className="release-section page-width"
+          aria-labelledby="release-title"
+        >
+          <div className="section-heading">
+            <h2 id="release-title">Still in beta.</h2>
+            <p>
+              The first public build is available now. Found an issue?
+              <br className="desktop-break" /> Report it on GitHub so we can
+              improve it.
+            </p>
+          </div>
+          <a className="release-row" href={appRelease.notes}>
+            <span className="release-version">v{appRelease.version}</span>
+            <div>
+              <h3>First public beta</h3>
+              <p>Movie and show libraries, playback, and offline downloads.</p>
+            </div>
+            <ArrowUpRight size={20} aria-hidden="true" />
+          </a>
+          <a className="text-link" href={appRelease.issues}>
+            Report an issue
+            <ArrowRight size={15} aria-hidden="true" />
+          </a>
+        </section>
+
+        <section
+          className="closing-section page-width"
           aria-labelledby="closing-title"
         >
-          <Image
-            className="closing-icon"
-            src="/images/theatre-icon.png"
-            alt=""
-            width={76}
-            height={76}
-          />
-          <p className="eyebrow">THEATRE FOR MAC</p>
-          <h2 id="closing-title">
-            Settle in.
-            <br />
-            <span>Your library is waiting.</span>
-          </h2>
+          <Image src="/images/theatre-icon.png" alt="" width={48} height={48} />
+          <h2 id="closing-title">Get Theatre.</h2>
+          <p>A free Jellyfin player for Mac.</p>
           <DownloadButton />
-          <a className="closing-notes" href={appRelease.notes}>
-            v{appRelease.version} · {appRelease.label}
-            <ArrowRight size={12} aria-hidden="true" />
-          </a>
+          <span className="download-note">
+            Version {appRelease.version} · Public beta
+          </span>
         </section>
       </main>
       <Footer />

@@ -1,8 +1,25 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
-export const alt = "Theatre. Your Jellyfin library. A better seat.";
+export const alt = "Theatre — Jellyfin on your Mac";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const [serif, inter] = await Promise.all([
+  readFile(
+    join(
+      process.cwd(),
+      "node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff",
+    ),
+  ),
+  readFile(
+    join(
+      process.cwd(),
+      "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff",
+    ),
+  ),
+]);
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -14,9 +31,9 @@ export default function OpenGraphImage() {
         flexDirection: "column",
         padding: "72px",
         justifyContent: "space-between",
-        color: "#f5f1eb",
-        background: "linear-gradient(130deg, #30221c, #0b0b0d 65%)",
-        fontFamily: "sans-serif",
+        color: "#eeedeb",
+        background: "#0e0e0f",
+        fontFamily: "Inter",
       }}
     >
       <div
@@ -24,7 +41,8 @@ export default function OpenGraphImage() {
           display: "flex",
           gap: "16px",
           alignItems: "center",
-          fontSize: 30,
+          fontSize: 34,
+          fontFamily: "Instrument Serif",
         }}
       >
         <div
@@ -38,7 +56,9 @@ export default function OpenGraphImage() {
             justifyContent: "center",
           }}
         >
-          ▶
+          <svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true">
+            <path d="M2 1L19 12L2 23Z" fill="#eeedeb" />
+          </svg>
         </div>
         Theatre
       </div>
@@ -46,19 +66,36 @@ export default function OpenGraphImage() {
         style={{
           display: "flex",
           flexDirection: "column",
-          fontSize: 88,
-          fontWeight: 600,
-          letterSpacing: "-5px",
-          lineHeight: 1.05,
+          fontFamily: "Instrument Serif",
+          fontSize: 112,
+          fontWeight: 400,
+          letterSpacing: "-2px",
+          lineHeight: 0.95,
         }}
       >
-        <span>Your Jellyfin library.</span>
-        <span style={{ color: "#b7a89c" }}>A better seat.</span>
+        <span>Jellyfin on</span>
+        <span>your Mac.</span>
       </div>
-      <div style={{ display: "flex", color: "#d4c7bd", fontSize: 22 }}>
-        Made for Mac. Free & open source.
+      <div style={{ display: "flex", color: "#a1a1a6", fontSize: 22 }}>
+        Free and open source. Available for Apple Silicon.
       </div>
     </div>,
-    size,
+    {
+      ...size,
+      fonts: [
+        {
+          name: "Instrument Serif",
+          data: new Uint8Array(serif).buffer,
+          weight: 400,
+          style: "normal",
+        },
+        {
+          name: "Inter",
+          data: new Uint8Array(inter).buffer,
+          weight: 400,
+          style: "normal",
+        },
+      ],
+    },
   );
 }
