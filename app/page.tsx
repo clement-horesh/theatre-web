@@ -94,17 +94,17 @@ export default function Home() {
         <section
           id="features"
           className="features page-width"
-          aria-label="Features"
+          aria-labelledby="app-title"
         >
+          <div className="product-section-heading">
+            <span className="section-kicker">THE APP</span>
+            <h2 id="app-title">Your library, in one place.</h2>
+            <p>
+              Browse your Jellyfin movies and shows, pick a season, and keep
+              watching. Your progress stays in sync with your server.
+            </p>
+          </div>
           <article className="library-feature feature-panel">
-            <div className="feature-heading">
-              <h2>Movies and shows, together.</h2>
-              <p>
-                Browse your library, pick a season, and keep watching.
-                <br className="desktop-break" /> Your progress stays in sync
-                with Jellyfin.
-              </p>
-            </div>
             <div className="library-preview">
               <AppPreview show />
             </div>
@@ -208,7 +208,7 @@ export default function Home() {
           className="player-section page-width"
           aria-labelledby="player-title"
         >
-          <div className="player-section-heading">
+          <div className="product-section-heading">
             <span className="section-kicker">THE VIDEO PLAYER</span>
             <h2 id="player-title">
               Everything on the video.
@@ -223,8 +223,8 @@ export default function Home() {
           <figure className="player-layout">
             <PlayerShowcase />
             <figcaption>
-              Player layout preview · Playback, volume, audio, subtitles, and
-              speed in one place.
+              The Theatre player · Playback, volume, audio, subtitles, and speed
+              in one place.
             </figcaption>
           </figure>
           <div className="player-features">

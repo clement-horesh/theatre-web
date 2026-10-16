@@ -31,7 +31,7 @@ export function Header() {
           Theatre
         </Link>
         <nav aria-label="Main navigation" className="nav-links">
-          <a href="/#features">Features</a>
+          <a href="/#features">The app</a>
           <a href="/#player">Video player</a>
           <a href="/#questions">Questions</a>
           <a href={appRelease.notes}>Release notes</a>
@@ -63,7 +63,7 @@ export function Footer() {
 }
 
 export function AppPreview({ show = false }: { show?: boolean }) {
-  const image = show ? "theatre-shows.webp" : "theatre-home.webp";
+  const image = show ? "theatre-shows.webp" : "theatre-home-screen.webp";
   return (
     <a
       className="app-window"
@@ -72,19 +72,21 @@ export function AppPreview({ show = false }: { show?: boolean }) {
       rel="noreferrer"
       aria-label={`View the full-size Theatre ${show ? "show" : "home"} screenshot`}
     >
-      <div className="window-chrome" aria-hidden="true">
-        <div className="traffic-lights">
-          <i />
-          <i />
-          <i />
+      {show && (
+        <div className="window-chrome" aria-hidden="true">
+          <div className="traffic-lights">
+            <i />
+            <i />
+            <i />
+          </div>
+          <div className="window-tabs">
+            <span>Home</span>
+            <span>Shows</span>
+            <span>Movies</span>
+          </div>
+          <ArrowUpRight size={13} />
         </div>
-        <div className="window-tabs">
-          <span>Home</span>
-          <span>Shows</span>
-          <span>Movies</span>
-        </div>
-        <ArrowUpRight size={13} />
-      </div>
+      )}
       <Image
         src={`/images/${image}`}
         alt={
@@ -93,7 +95,7 @@ export function AppPreview({ show = false }: { show?: boolean }) {
             : "Theatre home screen with featured movies and Continue watching."
         }
         width={2000}
-        height={1109}
+        height={show ? 1109 : 1163}
         sizes={
           show
             ? "(max-width: 800px) 90vw, 950px"

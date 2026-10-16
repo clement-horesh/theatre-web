@@ -74,10 +74,10 @@ export function SetupIllustration({
       ) : (
         <div className="play-demo">
           <Image
-            src="/images/theatre-home.webp"
+            src="/images/theatre-home-screen.webp"
             alt=""
             width={2000}
-            height={1109}
+            height={1163}
             sizes="350px"
           />
           <span>
