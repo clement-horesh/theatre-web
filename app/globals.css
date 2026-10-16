@@ -231,7 +231,7 @@ img {
 }
 .hero-art {
   overflow: clip;
-  overflow-clip-margin: 40px;
+  overflow-clip-margin: 20px;
 }
 .window-chrome {
   height: 30px;
