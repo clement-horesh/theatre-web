@@ -99,7 +99,7 @@ export default function Home() {
           aria-labelledby="app-title"
         >
           <div className="product-section-heading">
-            <span className="section-kicker">APP</span>
+            <span className="section-kicker">App</span>
             <h2 id="app-title">Your library, in one place.</h2>
             <p>
               Browse your Jellyfin movies and shows, pick a season, and keep
@@ -111,13 +111,6 @@ export default function Home() {
               <AppPreview show />
             </div>
           </article>
-          <div className="discovery-intro">
-            <h2>More from every title.</h2>
-            <p>
-              Watch a trailer, explore the cast, or find something related in
-              your library.
-            </p>
-          </div>
           <div className="discovery-grid">
             <article>
               <div className="discovery-image trailer-image">
@@ -200,12 +193,8 @@ export default function Home() {
           aria-labelledby="player-title"
         >
           <div className="product-section-heading">
-            <span className="section-kicker">VIDEO PLAYER</span>
-            <h2 id="player-title">
-              Everything on the video.
-              <br />
-              Nothing in the way.
-            </h2>
+            <span className="section-kicker">Video player</span>
+            <h2 id="player-title">Play your movies and shows.</h2>
             <p>
               VLC playback in a separate window. The controls stay on the
               picture and disappear while you watch.
@@ -365,25 +354,25 @@ export default function Home() {
           aria-labelledby="release-title"
         >
           <div className="section-heading">
-            <h2 id="release-title">Still in beta.</h2>
-            <p>
-              The first public build is available now. Found an issue?
-              <br className="desktop-break" /> Report it on GitHub so we can
-              improve it.
-            </p>
+            <h2 id="release-title">Try the public beta.</h2>
+            <p>Download Theatre and share bugs or feedback on GitHub.</p>
           </div>
-          <a className="release-row" href={appRelease.notes}>
+          <div className="release-row">
             <span className="release-version">v{appRelease.version}</span>
-            <div>
-              <h3>First public beta</h3>
+            <div className="release-details">
+              <h3>
+                <a className="release-notes" href={appRelease.notes}>
+                  First public beta
+                  <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </h3>
               <p>Movie and show libraries, playback, and offline downloads.</p>
             </div>
-            <ArrowUpRight size={20} aria-hidden="true" />
-          </a>
-          <a className="text-link" href={appRelease.issues}>
-            Report an issue
-            <ArrowRight size={15} aria-hidden="true" />
-          </a>
+            <a className="text-link" href={appRelease.issues}>
+              Report an issue
+              <ArrowRight size={15} aria-hidden="true" />
+            </a>
+          </div>
         </section>
 
         <section
