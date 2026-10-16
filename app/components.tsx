@@ -1,18 +1,14 @@
-import { cn } from "cn";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { appRelease } from "./links";
 
-export function DownloadButton({ small = false }: { small?: boolean }) {
+export function DownloadButton() {
   return (
     <Button
       asChild
-      className={cn(
-        "download-button h-12 rounded-lg px-5 text-sm font-medium shadow-none",
-        small && "h-10 px-4",
-      )}
+      className="download-button h-12 rounded-lg px-5 text-sm font-medium shadow-none"
     >
       <a href="/download">
         <Image src="/images/apple.svg" alt="" width={16} height={16} />
@@ -36,7 +32,15 @@ export function Header() {
           <a href="/#questions">Questions</a>
           <a href={appRelease.notes}>Release notes</a>
         </nav>
-        <DownloadButton small />
+        <Button
+          asChild
+          className="download-button h-10 rounded-lg px-4 text-sm font-medium shadow-none"
+        >
+          <Link href="/downloads">
+            <ArrowDownToLine size={16} aria-hidden="true" />
+            Download
+          </Link>
+        </Button>
       </div>
     </header>
   );

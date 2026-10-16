@@ -379,13 +379,26 @@ export default function Home() {
           className="closing-section page-width"
           aria-labelledby="closing-title"
         >
-          <Image src="/images/theatre-icon.png" alt="" width={48} height={48} />
-          <h2 id="closing-title">Get Theatre.</h2>
-          <p>A free Jellyfin player for Mac.</p>
-          <DownloadButton />
-          <span className="download-note">
-            Version {appRelease.version} · Public beta
-          </span>
+          <div className="closing-copy">
+            <Image
+              src="/images/theatre-icon.png"
+              alt=""
+              width={64}
+              height={64}
+            />
+            <h2 id="closing-title">Get Theatre for Mac.</h2>
+            <p>Watch your Jellyfin library, online or offline.</p>
+          </div>
+          <div className="closing-actions">
+            <DownloadButton />
+            <span className="download-note">
+              Free · Apple Silicon · macOS 13+
+            </span>
+            <a className="text-link" href={appRelease.notes}>
+              Version {appRelease.version} · Public beta
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+          </div>
         </section>
       </main>
       <Footer />
