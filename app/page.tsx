@@ -16,7 +16,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { AppPreview, DownloadButton, Footer, Header } from "./components";
-import { SetupIllustration, TrackIllustration } from "./illustrations";
+import {
+  DownloadIllustration,
+  SetupIllustration,
+  TrackIllustration,
+} from "./illustrations";
 import { appRelease } from "./links";
 import { HeroShowcase, PlayerShowcase } from "./player-showcase";
 
@@ -61,11 +65,6 @@ export default function Home() {
           aria-labelledby="hero-title"
         >
           <div className="hero-copy">
-            <a href={appRelease.notes} className="release-label">
-              <span className="status-dot" />
-              Version {appRelease.version} · Public beta
-              <ArrowUpRight size={13} aria-hidden="true" />
-            </a>
             <h1 id="hero-title">Jellyfin on your Mac.</h1>
             <p>
               Watch movies and shows from your Jellyfin server. A native Mac app
@@ -85,7 +84,10 @@ export default function Home() {
               </a>
             </div>
             <p className="download-note">
-              Free and open source. Apple Silicon · macOS 13+
+              Free and open source · Apple Silicon · macOS 13+ ·{" "}
+              <a href={appRelease.notes}>
+                Version {appRelease.version} · Public beta
+              </a>
             </p>
           </div>
           <HeroShowcase />
@@ -97,7 +99,7 @@ export default function Home() {
           aria-labelledby="app-title"
         >
           <div className="product-section-heading">
-            <span className="section-kicker">THE APP</span>
+            <span className="section-kicker">APP</span>
             <h2 id="app-title">Your library, in one place.</h2>
             <p>
               Browse your Jellyfin movies and shows, pick a season, and keep
@@ -173,18 +175,7 @@ export default function Home() {
                   reconnect.
                 </p>
               </div>
-              <figure className="download-screenshot">
-                <Image
-                  src="/images/theatre-download.webp"
-                  alt="Theatre’s movie page with its Download button beside Play Again."
-                  width={700}
-                  height={220}
-                  sizes="(max-width: 540px) 85vw, 500px"
-                />
-                <figcaption>
-                  Download from any movie or episode page.
-                </figcaption>
-              </figure>
+              <DownloadIllustration />
             </article>
             <article className="feature-panel formats-feature">
               <div className="format-art" aria-hidden="true">
@@ -209,7 +200,7 @@ export default function Home() {
           aria-labelledby="player-title"
         >
           <div className="product-section-heading">
-            <span className="section-kicker">THE VIDEO PLAYER</span>
+            <span className="section-kicker">VIDEO PLAYER</span>
             <h2 id="player-title">
               Everything on the video.
               <br />
@@ -220,13 +211,9 @@ export default function Home() {
               picture and disappear while you watch.
             </p>
           </div>
-          <figure className="player-layout">
+          <div className="player-layout">
             <PlayerShowcase />
-            <figcaption>
-              The Theatre player · Playback, volume, audio, subtitles, and speed
-              in one place.
-            </figcaption>
-          </figure>
+          </div>
           <div className="player-features">
             <article>
               <div
@@ -314,11 +301,6 @@ export default function Home() {
               </p>
             </article>
           </div>
-          <p className="player-footnote">
-            Intro and credit actions depend on Jellyfin’s media markers. Picture
-            in Picture and AirPlay depend on stream compatibility; receiver
-            output still needs further hardware testing.
-          </p>
         </section>
 
         <section
@@ -341,14 +323,6 @@ export default function Home() {
               <span>02</span>
               <h3>Sign in</h3>
               <p>Enter your Jellyfin server address, username, and password.</p>
-            </li>
-            <li>
-              <SetupIllustration kind="play" />
-              <span>03</span>
-              <h3>Press play</h3>
-              <p>
-                Your library loads from your server. Choose a title to start.
-              </p>
             </li>
           </ol>
         </section>

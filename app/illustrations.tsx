@@ -1,4 +1,10 @@
-import { ArrowRight, Check, Folder, Play, Server, Volume2 } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Folder,
+  HardDriveDownload,
+  Volume2,
+} from "lucide-react";
 import Image from "next/image";
 
 export function TrackIllustration({ kind }: { kind: "subtitles" | "audio" }) {
@@ -35,11 +41,7 @@ export function TrackIllustration({ kind }: { kind: "subtitles" | "audio" }) {
   );
 }
 
-export function SetupIllustration({
-  kind,
-}: {
-  kind: "install" | "connect" | "play";
-}) {
+export function SetupIllustration({ kind }: { kind: "install" | "connect" }) {
   return (
     <div className={`setup-visual setup-${kind}`} aria-hidden="true">
       {kind === "install" ? (
@@ -59,32 +61,39 @@ export function SetupIllustration({
             <span>Applications</span>
           </div>
         </div>
-      ) : kind === "connect" ? (
-        <div className="connect-demo">
-          <span className="server-label">
-            <Server size={14} />
-            Jellyfin server
-          </span>
-          <span className="server-address">https://jellyfin.example.com</span>
-          <span className="connect-action">
-            Connect
-            <ArrowRight size={12} />
-          </span>
-        </div>
       ) : (
-        <div className="play-demo">
-          <Image
-            src="/images/theatre-home-screen.webp"
-            alt=""
-            width={2000}
-            height={1163}
-            sizes="350px"
-          />
-          <span>
-            <Play size={23} fill="currentColor" />
-          </span>
-        </div>
+        <Image
+          className="sign-in-screenshot"
+          src="/images/theatre-sign-in.webp"
+          alt=""
+          width={900}
+          height={650}
+          sizes="(max-width: 800px) 85vw, 510px"
+        />
       )}
+    </div>
+  );
+}
+
+export function DownloadIllustration() {
+  return (
+    <div className="offline-art" aria-hidden="true">
+      <div className="offline-preview">
+        <Image
+          src="/images/theatre-continue.webp"
+          alt=""
+          width={395}
+          height={235}
+          sizes="280px"
+        />
+        <span className="offline-status">
+          <Check size={14} />
+          Available offline
+        </span>
+      </div>
+      <span className="offline-download">
+        <HardDriveDownload size={30} strokeWidth={1.5} />
+      </span>
     </div>
   );
 }

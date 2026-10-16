@@ -31,7 +31,7 @@ export function Header() {
           Theatre
         </Link>
         <nav aria-label="Main navigation" className="nav-links">
-          <a href="/#features">The app</a>
+          <a href="/#features">App</a>
           <a href="/#player">Video player</a>
           <a href="/#questions">Questions</a>
           <a href={appRelease.notes}>Release notes</a>
@@ -55,9 +55,6 @@ export function Footer() {
           <Link href="/privacy">Privacy</Link>
         </nav>
       </div>
-      <p>
-        An independent Jellyfin client. Not affiliated with Jellyfin or Apple.
-      </p>
     </footer>
   );
 }

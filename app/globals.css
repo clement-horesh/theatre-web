@@ -155,20 +155,7 @@ img {
   position: relative;
   z-index: 1;
 }
-.release-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  color: #98989e;
-  margin-bottom: 28px;
-}
-.status-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #aaa9a3;
-}
+
 .hero h1 {
   font-size: clamp(58px, 6.5vw, 84px);
   line-height: 1.04;
@@ -195,6 +182,13 @@ img {
   font-size: 13px;
   color: #b2b2b8;
   transition: color 0.2s;
+}
+.download-note a {
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #b3b3ba;
 }
 .download-note {
   font-size: 11px;
@@ -370,8 +364,8 @@ img {
 }
 .setup-steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
   list-style: none;
   padding: 0;
 }
@@ -487,11 +481,7 @@ img {
   color: #a0a0a7;
   font-size: 12px;
 }
-.site-footer > p {
-  margin-top: 24px;
-  font-size: 11px;
-  color: #74747c;
-}
+
 .legal-page {
   max-width: 760px;
   padding-block: 70px 90px;
@@ -650,10 +640,7 @@ img {
     padding-block: 48px 42px;
     gap: 36px;
   }
-  .release-label {
-    margin-bottom: 22px;
-    font-size: 11px;
-  }
+
   .hero h1 {
     font-size: 60px;
     letter-spacing: -2px;
@@ -825,9 +812,7 @@ img {
     font-size: 11px;
     max-width: 210px;
   }
-  .site-footer > p {
-    font-size: 10px;
-  }
+
   .legal-page {
     padding-block: 45px 60px;
   }
@@ -853,20 +838,46 @@ img {
   filter: invert(1);
   opacity: 0.8;
 }
-.download-screenshot {
-  margin: 28px -16px 0;
-  overflow: hidden;
-  border: 1px solid #ffffff12;
-  border-radius: 12px;
-  background: #101011;
+.offline-art {
+  position: relative;
+  width: 310px;
+  max-width: 100%;
+  margin: 38px auto 5px;
+  padding: 0 22px 0 0;
 }
-.download-screenshot img {
+.offline-preview {
+  padding: 10px;
+  background: #202022;
+  border: 1px solid #ffffff1c;
+  border-radius: 17px;
+  box-shadow: 0 20px 45px #0005;
+}
+.offline-preview img {
   width: 100%;
+  border-radius: 10px;
 }
-.download-screenshot figcaption {
-  color: #888891;
-  font-size: 11px;
-  padding: 13px 16px;
+.offline-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  color: #c9d6cd;
+  font-size: 12px;
+  padding: 14px 0 4px;
+}
+.offline-download {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  background: #303033;
+  border: 1px solid #ffffff25;
+  border-radius: 19px;
+  box-shadow: 0 10px 25px #0005;
+  color: #eeeeef;
 }
 .feature-visual {
   height: 185px;
@@ -981,8 +992,8 @@ img {
   color: currentColor;
 }
 .setup-visual {
-  height: 180px;
-  border-radius: 12px;
+  height: 390px;
+  border-radius: 16px;
   border: 1px solid var(--border);
   background: #171719;
   overflow: hidden;
@@ -1004,6 +1015,11 @@ img {
   font-size: 10px;
   color: #9898a2;
 }
+.install-demo > div > img,
+.install-demo > div > svg {
+  width: 70px;
+  height: 70px;
+}
 .install-demo > div:last-child svg {
   color: #86abc9;
 }
@@ -1011,70 +1027,14 @@ img {
   color: #70707a;
   margin-bottom: 23px;
 }
-.connect-demo {
-  width: 240px;
-  padding: 15px;
-  border: 1px solid #ffffff15;
-  border-radius: 10px;
-  background: #202022;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.setup-connect {
+  padding: 25px;
+  background: #111112;
 }
-.server-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  color: #b8b8c0;
-}
-.server-address {
-  background: #151516;
-  border: 1px solid #ffffff14;
-  border-radius: 5px;
-  padding: 7px;
-  font-size: 10px;
-  color: #9999a5;
-}
-.connect-action {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  font-size: 10px;
-  background: #e9e9ec;
-  color: #202022;
-  border-radius: 5px;
-  padding: 5px;
-}
-.play-demo {
-  position: relative;
+.sign-in-screenshot {
   width: 100%;
-  height: 100%;
-}
-.play-demo > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  opacity: 0.8;
-}
-.play-demo > span {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 49px;
-  height: 49px;
-  border: 1px solid #ffffff40;
-  border-radius: 50%;
-  background: #29292990;
-  backdrop-filter: blur(10px);
-}
-.play-demo svg {
-  margin-left: 3px;
+  max-height: 100%;
+  object-fit: contain;
 }
 @media (max-width: 1000px) and (min-width: 801px) {
   .hero h1 {
@@ -1099,13 +1059,6 @@ img {
   }
   .install-demo {
     gap: 10px;
-  }
-  .connect-demo {
-    width: 92%;
-    padding: 10px;
-  }
-  .server-address {
-    font-size: 8px;
   }
 }
 @media (max-width: 540px) {
@@ -1141,16 +1094,6 @@ img {
   .install-demo {
     gap: 28px;
   }
-  .connect-demo {
-    width: 260px;
-    padding: 15px;
-  }
-  .server-address {
-    font-size: 11px;
-  }
-  .download-screenshot {
-    margin-inline: -5px;
-  }
 }
 @media (max-width: 800px) {
   .feature-pair,
@@ -1181,17 +1124,10 @@ img {
     width: 250px;
   }
   .setup-visual {
-    height: 200px;
+    height: 310px;
   }
   .setup-steps {
     gap: 32px;
-  }
-  .connect-demo {
-    width: 260px;
-    padding: 15px;
-  }
-  .server-address {
-    font-size: 11px;
   }
 }
 
@@ -1206,9 +1142,7 @@ img {
   max-width: 1000px;
   margin-inline: auto;
 }
-.cinematic-hero .release-label {
-  margin-bottom: 22px;
-}
+
 .cinematic-hero h1 {
   font-size: clamp(52px, 6.2vw, 82px);
   line-height: 1.08;
@@ -1389,17 +1323,11 @@ img {
 }
 .player-layout {
   margin: 0;
-  padding: 24px 24px 15px;
+  padding: 24px;
   border-radius: 25px;
   background:
     radial-gradient(ellipse at 50% 20%, #21445960, transparent 70%), #151719;
   border: 1px solid #ffffff0c;
-}
-.player-layout figcaption {
-  text-align: center;
-  color: #82828d;
-  font-size: 10px;
-  margin-top: 16px;
 }
 .player-features {
   display: grid;
@@ -1493,14 +1421,6 @@ img {
   font-size: 10px;
   color: #a5a5af;
 }
-.player-footnote {
-  max-width: 750px;
-  margin: 35px auto 0;
-  text-align: center;
-  color: #7d7d87;
-  font-size: 11px;
-  line-height: 1.8;
-}
 @media (max-width: 1000px) {
   .hero-cinema {
     min-height: 52vw;
@@ -1593,7 +1513,7 @@ img {
   }
   .library-feature,
   .player-layout {
-    padding: 14px 14px 12px;
+    padding: 14px;
     border-radius: 20px;
   }
   .player-features {
@@ -1681,12 +1601,6 @@ img {
     padding: 8px;
     border-radius: 13px;
   }
-  .player-layout figcaption {
-    font-size: 8px;
-    padding-inline: 7px;
-    line-height: 1.8;
-    margin-top: 9px;
-  }
   .player-features {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1704,10 +1618,5 @@ img {
   }
   .player-features h3 {
     margin-top: 16px;
-  }
-  .player-footnote {
-    text-align: left;
-    font-size: 10px;
-    margin-top: 28px;
   }
 }
