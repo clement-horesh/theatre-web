@@ -1790,3 +1790,178 @@ img {
     padding: 28px;
   }
 }
+
+/* Motion stays in CSS; content remains usable without animation support. */
+.download-button,
+.app-window,
+.discovery-grid article,
+.feature-pair > article,
+.setup-visual,
+.platform-mac,
+.player-feature-art,
+.player-features .feature-visual {
+  transition:
+    translate 240ms ease,
+    box-shadow 240ms ease,
+    background-color 240ms ease;
+}
+.discovery-image img {
+  transition: scale 450ms ease;
+}
+.wordmark img {
+  transition:
+    rotate 300ms ease,
+    scale 300ms ease;
+}
+.text-link svg,
+.release-notes svg,
+.download-button > svg {
+  transition: translate 220ms ease;
+}
+.nav-links a,
+.footer-row nav a,
+.release-notes,
+.platform-download > a:not(.download-button) {
+  transition: color 180ms ease;
+}
+.questions [data-slot="accordion-item"] {
+  transition: background-color 200ms ease;
+}
+.download-button:focus-visible {
+  background: #fff;
+  box-shadow: 0 8px 24px #0003;
+}
+.questions [data-slot="accordion-item"]:focus-within {
+  background: #202023;
+}
+@media (hover: hover) and (pointer: fine) {
+  .download-button:hover {
+    background: #fff;
+    box-shadow: 0 8px 24px #0003;
+  }
+  .app-window:hover {
+    box-shadow: 0 32px 70px #0009;
+  }
+  .discovery-grid article:hover,
+  .feature-pair > article:hover,
+  .setup-visual:hover,
+  .player-feature-art:hover,
+  .player-features .feature-visual:hover {
+    background-color: #1c1c1f;
+    box-shadow: 0 12px 30px #0003;
+  }
+  .platform-mac:hover {
+    box-shadow: 0 16px 40px #0004;
+  }
+  .questions [data-slot="accordion-item"]:hover {
+    background: #202023;
+  }
+  .release-notes:hover,
+  .platform-download > a:not(.download-button):hover {
+    color: #fff;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes theatre-enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  .hero-copy > *,
+  .downloads-heading,
+  .legal-page > h1,
+  .legal-lead,
+  .platform-card,
+  .cinema-library,
+  .cinema-player,
+  .cinema-resume {
+    animation: theatre-enter 650ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .hero-copy > :nth-child(2) {
+    animation-delay: 60ms;
+  }
+  .hero-copy > :nth-child(3) {
+    animation-delay: 120ms;
+  }
+  .hero-copy > :nth-child(4) {
+    animation-delay: 180ms;
+  }
+  .cinema-library,
+  .platform-card:first-child {
+    animation-delay: 140ms;
+  }
+  .cinema-player,
+  .platform-card:nth-child(2) {
+    animation-delay: 220ms;
+  }
+  .cinema-resume,
+  .platform-card:nth-child(3) {
+    animation-delay: 300ms;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .download-button:hover {
+      translate: 0 -2px;
+    }
+    .download-button:active {
+      translate: 0 0;
+    }
+    .app-window:hover,
+    .discovery-grid article:hover,
+    .feature-pair > article:hover,
+    .setup-visual:hover,
+    .platform-mac:hover,
+    .player-feature-art:hover,
+    .player-features .feature-visual:hover {
+      translate: 0 -3px;
+    }
+    .discovery-grid article:hover .discovery-image img {
+      scale: 1.025;
+    }
+    .wordmark:hover img {
+      rotate: -4deg;
+      scale: 1.04;
+    }
+    .text-link:hover svg {
+      translate: 3px 0;
+    }
+    .release-notes:hover svg {
+      translate: 2px -2px;
+    }
+    .download-button:hover > svg {
+      translate: 0 2px;
+    }
+  }
+  @supports (animation-timeline: view()) and
+    (animation-range: entry 0% entry 30%) {
+    @keyframes theatre-reveal {
+      from {
+        opacity: 0.65;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    .features > .product-section-heading,
+    .library-feature,
+    .discovery-grid,
+    .feature-pair,
+    .player-section > .product-section-heading,
+    .player-layout,
+    .player-features,
+    .setup-section,
+    .questions-section,
+    .release-section,
+    .closing-section {
+      animation: theatre-reveal 1s linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+}
