@@ -1,11 +1,4 @@
-import {
-  ArrowRight,
-  ArrowUpRight,
-  AudioLines,
-  FolderDown,
-  Play,
-  Subtitles,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import {
   Accordion,
@@ -14,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { AppPreview, DownloadButton, Footer, Header } from "./components";
+import { SetupIllustration, TrackIllustration } from "./illustrations";
 import { appRelease } from "./links";
 
 const questions = [
@@ -71,8 +65,14 @@ export default function Home() {
             <div className="hero-actions">
               <DownloadButton />
               <a className="text-link" href={appRelease.repository}>
+                <Image
+                  className="github-logo"
+                  src="/images/github.svg"
+                  alt=""
+                  width={17}
+                  height={17}
+                />
                 View on GitHub
-                <ArrowUpRight size={15} aria-hidden="true" />
               </a>
             </div>
             <p className="download-note">
@@ -112,10 +112,18 @@ export default function Home() {
                   reconnect.
                 </p>
               </div>
-              <div className="offline-art" aria-hidden="true">
-                <FolderDown size={106} strokeWidth={0.9} />
-                <span>Saved on your Mac.</span>
-              </div>
+              <figure className="download-screenshot">
+                <Image
+                  src="/images/theatre-download.webp"
+                  alt="Theatre’s movie page with its Download button beside Play Again."
+                  width={700}
+                  height={220}
+                  sizes="(max-width: 540px) 85vw, 500px"
+                />
+                <figcaption>
+                  Download from any movie or episode page.
+                </figcaption>
+              </figure>
             </article>
             <article className="feature-panel formats-feature">
               <div className="format-art" aria-hidden="true">
@@ -134,17 +142,25 @@ export default function Home() {
           </div>
           <div className="feature-notes">
             <div>
-              <Play size={18} aria-hidden="true" />
+              <div className="feature-visual resume-visual">
+                <Image
+                  src="/images/theatre-continue.webp"
+                  alt="A Continue card with saved playback progress in Theatre."
+                  width={395}
+                  height={235}
+                  sizes="(max-width: 540px) 85vw, 330px"
+                />
+              </div>
               <h3>Keep watching</h3>
               <p>Resume a video or play the next episode automatically.</p>
             </div>
             <div>
-              <Subtitles size={18} aria-hidden="true" />
+              <TrackIllustration kind="subtitles" />
               <h3>Adjust your subtitles</h3>
               <p>Change their language, size, color, and position.</p>
             </div>
             <div>
-              <AudioLines size={18} aria-hidden="true" />
+              <TrackIllustration kind="audio" />
               <h3>Choose your audio</h3>
               <p>Switch tracks and save your preferred language.</p>
             </div>
@@ -161,16 +177,19 @@ export default function Home() {
           </div>
           <ol className="setup-steps">
             <li>
+              <SetupIllustration kind="install" />
               <span>01</span>
               <h3>Install Theatre</h3>
               <p>Open the DMG and drag Theatre into Applications.</p>
             </li>
             <li>
+              <SetupIllustration kind="connect" />
               <span>02</span>
               <h3>Sign in</h3>
               <p>Enter your Jellyfin server address, username, and password.</p>
             </li>
             <li>
+              <SetupIllustration kind="play" />
               <span>03</span>
               <h3>Press play</h3>
               <p>

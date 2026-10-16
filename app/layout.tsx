@@ -2,12 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const serif = localFont({
-  src: "../node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2",
-  variable: "--font-serif",
-  weight: "400",
-  display: "swap",
-});
 const inter = localFont({
   src: [
     {
@@ -54,7 +48,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${serif.variable} ${inter.variable}`}>{children}</body>
+      <body className={inter.variable}>{children}</body>
     </html>
   );
 }

@@ -6,20 +6,12 @@ export const alt = "Theatre — Jellyfin on your Mac";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const [serif, inter] = await Promise.all([
-  readFile(
-    join(
-      process.cwd(),
-      "node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff",
-    ),
+const inter = await readFile(
+  join(
+    process.cwd(),
+    "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff",
   ),
-  readFile(
-    join(
-      process.cwd(),
-      "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff",
-    ),
-  ),
-]);
+);
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -42,7 +34,7 @@ export default function OpenGraphImage() {
           gap: "16px",
           alignItems: "center",
           fontSize: 34,
-          fontFamily: "Instrument Serif",
+          fontFamily: "Inter",
         }}
       >
         <div
@@ -66,8 +58,8 @@ export default function OpenGraphImage() {
         style={{
           display: "flex",
           flexDirection: "column",
-          fontFamily: "Instrument Serif",
-          fontSize: 112,
+          fontFamily: "Inter",
+          fontSize: 94,
           fontWeight: 400,
           letterSpacing: "-2px",
           lineHeight: 0.95,
@@ -83,12 +75,6 @@ export default function OpenGraphImage() {
     {
       ...size,
       fonts: [
-        {
-          name: "Instrument Serif",
-          data: new Uint8Array(serif).buffer,
-          weight: 400,
-          style: "normal",
-        },
         {
           name: "Inter",
           data: new Uint8Array(inter).buffer,

@@ -1,5 +1,5 @@
 import { cn } from "cn";
-import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,7 @@ export function DownloadButton({ small = false }: { small?: boolean }) {
       )}
     >
       <a href="/download">
-        <ArrowDownToLine className="size-4" aria-hidden="true" />
+        <Image src="/images/apple.svg" alt="" width={16} height={16} />
         Download for Mac
       </a>
     </Button>
