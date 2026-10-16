@@ -1,4 +1,13 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import {
+  Airplay,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  Keyboard,
+  Moon,
+  PictureInPicture2,
+  SkipForward,
+} from "lucide-react";
 import Image from "next/image";
 import {
   Accordion,
@@ -9,6 +18,7 @@ import {
 import { AppPreview, DownloadButton, Footer, Header } from "./components";
 import { SetupIllustration, TrackIllustration } from "./illustrations";
 import { appRelease } from "./links";
+import { HeroShowcase, PlayerShowcase } from "./player-showcase";
 
 const questions = [
   {
@@ -46,18 +56,17 @@ export default function Home() {
       </a>
       <Header />
       <main id="main">
-        <section className="hero page-width" aria-labelledby="hero-title">
+        <section
+          className="cinematic-hero page-width"
+          aria-labelledby="hero-title"
+        >
           <div className="hero-copy">
             <a href={appRelease.notes} className="release-label">
               <span className="status-dot" />
               Version {appRelease.version} · Public beta
               <ArrowUpRight size={13} aria-hidden="true" />
             </a>
-            <h1 id="hero-title">
-              Jellyfin on
-              <br />
-              your Mac.
-            </h1>
+            <h1 id="hero-title">Jellyfin on your Mac.</h1>
             <p>
               Watch movies and shows from your Jellyfin server. A native Mac app
               with offline downloads.
@@ -79,9 +88,7 @@ export default function Home() {
               Free and open source. Apple Silicon · macOS 13+
             </p>
           </div>
-          <div className="hero-art">
-            <AppPreview />
-          </div>
+          <HeroShowcase />
         </section>
 
         <section
@@ -102,6 +109,60 @@ export default function Home() {
               <AppPreview show />
             </div>
           </article>
+          <div className="discovery-intro">
+            <h2>More from every title.</h2>
+            <p>
+              Watch a trailer, explore the cast, or find something related in
+              your library.
+            </p>
+          </div>
+          <div className="discovery-grid">
+            <article>
+              <div className="discovery-image trailer-image">
+                <Image
+                  src="/images/theatre-trailer.webp"
+                  alt="Theatre’s trailer card for The Devil Wears Prada 2."
+                  width={800}
+                  height={563}
+                  sizes="(max-width: 800px) 85vw, 350px"
+                />
+              </div>
+              <h3>Watch the trailer</h3>
+              <p>Watch trailers provided by Jellyfin in a separate window.</p>
+            </article>
+            <article>
+              <div className="discovery-image cast-image">
+                <Image
+                  src="/images/theatre-cast.webp"
+                  alt="Cast portraits and roles on a Theatre detail page."
+                  width={1000}
+                  height={450}
+                  sizes="(max-width: 800px) 85vw, 350px"
+                />
+              </div>
+              <h3>Follow the cast</h3>
+              <p>
+                Select an actor or crew member to see their other movies and
+                shows on your server.
+              </p>
+            </article>
+            <article>
+              <div className="discovery-image related-image">
+                <Image
+                  src="/images/theatre-related.webp"
+                  alt="Related titles recommended by Jellyfin in Theatre."
+                  width={770}
+                  height={630}
+                  sizes="(max-width: 800px) 85vw, 350px"
+                />
+              </div>
+              <h3>Find your next watch</h3>
+              <p>
+                Explore related titles recommended by Jellyfin, all from your
+                own collection.
+              </p>
+            </article>
+          </div>
           <div className="feature-pair">
             <article className="feature-panel offline-feature">
               <div>
@@ -140,31 +201,124 @@ export default function Home() {
               </div>
             </article>
           </div>
-          <div className="feature-notes">
-            <div>
-              <div className="feature-visual resume-visual">
-                <Image
-                  src="/images/theatre-continue.webp"
-                  alt="A Continue card with saved playback progress in Theatre."
-                  width={395}
-                  height={235}
-                  sizes="(max-width: 540px) 85vw, 330px"
-                />
-              </div>
-              <h3>Keep watching</h3>
-              <p>Resume a video or play the next episode automatically.</p>
-            </div>
-            <div>
-              <TrackIllustration kind="subtitles" />
-              <h3>Adjust your subtitles</h3>
-              <p>Change their language, size, color, and position.</p>
-            </div>
-            <div>
-              <TrackIllustration kind="audio" />
-              <h3>Choose your audio</h3>
-              <p>Switch tracks and save your preferred language.</p>
-            </div>
+        </section>
+
+        <section
+          id="player"
+          className="player-section page-width"
+          aria-labelledby="player-title"
+        >
+          <div className="player-section-heading">
+            <span className="section-kicker">THE VIDEO PLAYER</span>
+            <h2 id="player-title">
+              Everything on the video.
+              <br />
+              Nothing in the way.
+            </h2>
+            <p>
+              VLC playback in a separate window. The controls stay on the
+              picture and disappear while you watch.
+            </p>
           </div>
+          <figure className="player-layout">
+            <PlayerShowcase />
+            <figcaption>
+              Player layout preview · Playback, volume, audio, subtitles, and
+              speed in one place.
+            </figcaption>
+          </figure>
+          <div className="player-features">
+            <article>
+              <div
+                className="player-feature-art autoplay-art"
+                aria-hidden="true"
+              >
+                <SkipForward size={26} />
+                <span>
+                  Play next episode<small>Automatically</small>
+                </span>
+                <i>
+                  <Check size={12} />
+                </i>
+              </div>
+              <h3>One episode after another</h3>
+              <p>
+                The next episode starts when the current one ends. Autoplay is
+                on by default and can be changed in Settings.
+              </p>
+            </article>
+            <article>
+              <div className="player-feature-art marker-art" aria-hidden="true">
+                <span>Skip Intro</span>
+                <span>
+                  Next Episode
+                  <SkipForward size={13} />
+                </span>
+              </div>
+              <h3>Skip intros. Move past credits.</h3>
+              <p>
+                Skip Intro appears during a server-provided intro. At the
+                credits, Next Episode appears if Jellyfin supplies an Outro
+                marker; otherwise it appears at the end.
+              </p>
+            </article>
+            <article>
+              <TrackIllustration kind="subtitles" />
+              <h3>Subtitles that suit you</h3>
+              <p>
+                Choose a language and adjust text size, color, and position.
+                Your preferred language is remembered for later videos.
+              </p>
+            </article>
+            <article>
+              <TrackIllustration kind="audio" />
+              <h3>Your audio, your pace</h3>
+              <p>
+                Switch audio tracks, save your preferred language, or change
+                playback speed.
+              </p>
+            </article>
+            <article>
+              <div className="player-feature-art output-art" aria-hidden="true">
+                <span>
+                  <PictureInPicture2 size={29} />
+                  <small>Picture in Picture</small>
+                </span>
+                <span>
+                  <Airplay size={29} />
+                  <small>AirPlay</small>
+                </span>
+              </div>
+              <h3>A window that fits</h3>
+              <p>
+                Resize with the video’s aspect ratio locked, enter full screen,
+                or use native Picture in Picture and AirPlay with compatible
+                streams.
+              </p>
+            </article>
+            <article>
+              <div
+                className="player-feature-art shortcuts-art"
+                aria-hidden="true"
+              >
+                <Keyboard size={21} />
+                <kbd>Space</kbd>
+                <kbd>F</kbd>
+                <Moon size={19} />
+              </div>
+              <h3>Made for watching on a Mac</h3>
+              <p>
+                Use media keys and macOS Now Playing. Jump 10 seconds, scrub, or
+                adjust volume. Controls and cursor hide together, and the
+                display stays awake during playback.
+              </p>
+            </article>
+          </div>
+          <p className="player-footnote">
+            Intro and credit actions depend on Jellyfin’s media markers. Picture
+            in Picture and AirPlay depend on stream compatibility; receiver
+            output still needs further hardware testing.
+          </p>
         </section>
 
         <section

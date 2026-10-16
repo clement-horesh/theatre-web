@@ -32,6 +32,7 @@ export function Header() {
         </Link>
         <nav aria-label="Main navigation" className="nav-links">
           <a href="/#features">Features</a>
+          <a href="/#player">Video player</a>
           <a href="/#questions">Questions</a>
           <a href={appRelease.notes}>Release notes</a>
         </nav>
