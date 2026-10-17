@@ -108,10 +108,14 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 23px;
+  font-size: 20px;
   line-height: 1;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.025em;
+}
+.wordmark-text {
+  display: block;
+  transform: translateY(2px);
 }
 .text-link:hover,
 .site-footer a:hover {

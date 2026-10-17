@@ -29,6 +29,11 @@ const newsreader = localFont({
       weight: "400",
       style: "italic",
     },
+    {
+      path: "../node_modules/@fontsource/newsreader/files/newsreader-latin-600-normal.woff2",
+      weight: "600",
+      style: "normal",
+    },
   ],
   variable: "--font-newsreader",
   display: "swap",

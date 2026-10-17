@@ -24,7 +24,7 @@ export function Header() {
       <div className="nav-inner">
         <Link href="/" className="wordmark" aria-label="Theatre home">
           <Image src="/images/theatre-icon.png" alt="" width={27} height={27} />
-          Theatre
+          <span className="wordmark-text">theatre</span>
         </Link>
         <nav aria-label="Main navigation" className="nav-links">
           <a href="/#features">App</a>
@@ -51,7 +51,7 @@ export function Footer() {
     <footer className="site-footer page-width">
       <div className="footer-row">
         <Link href="/" className="wordmark">
-          Theatre
+          <span className="wordmark-text">theatre</span>
         </Link>
         <nav aria-label="Footer navigation">
           <a href={appRelease.repository}>GitHub</a>
