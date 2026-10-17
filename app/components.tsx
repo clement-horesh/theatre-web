@@ -34,7 +34,7 @@ export function Header() {
         </nav>
         <Button
           asChild
-          className="download-button h-10 rounded-lg px-4 text-sm font-medium shadow-none"
+          className="nav-download h-10 rounded-lg px-4 text-sm font-medium shadow-none"
         >
           <Link href="/downloads">
             <ArrowDownToLine size={16} aria-hidden="true" />
@@ -100,7 +100,7 @@ export function AppPreview({ show = false }: { show?: boolean }) {
         sizes={
           show
             ? "(max-width: 800px) 90vw, 950px"
-            : "(max-width: 800px) 95vw, 850px"
+            : "(max-width: 800px) 95vw, 1120px"
         }
         preload={!show}
       />

@@ -12,6 +12,9 @@ const inter = await readFile(
     "node_modules/@fontsource/inter/files/inter-latin-400-normal.woff",
   ),
 );
+const icon = await readFile(
+  join(process.cwd(), "public/images/theatre-icon.png"),
+);
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -23,8 +26,8 @@ export default function OpenGraphImage() {
         flexDirection: "column",
         padding: "72px",
         justifyContent: "space-between",
-        color: "#eeedeb",
-        background: "#0e0e0f",
+        color: "#f1f5fb",
+        background: "radial-gradient(ellipse at 100% 0%, #243c57, #0e1116 75%)",
         fontFamily: "Inter",
       }}
     >
@@ -37,21 +40,14 @@ export default function OpenGraphImage() {
           fontFamily: "Inter",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            border: "1px solid #65605a",
-            width: 52,
-            height: 52,
-            borderRadius: 14,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true">
-            <path d="M2 1L19 12L2 23Z" fill="#eeedeb" />
-          </svg>
-        </div>
+        {/* ImageResponse renders an embedded image rather than a Next Image. */}
+        {/* biome-ignore lint/performance/noImgElement: Satori requires a plain image element. */}
+        <img
+          src={`data:image/png;base64,${icon.toString("base64")}`}
+          alt=""
+          width={52}
+          height={52}
+        />
         Theatre
       </div>
       <div
@@ -66,9 +62,9 @@ export default function OpenGraphImage() {
         }}
       >
         <span>Jellyfin on</span>
-        <span>your Mac.</span>
+        <span style={{ color: "#9cceff" }}>your Mac.</span>
       </div>
-      <div style={{ display: "flex", color: "#a1a1a6", fontSize: 22 }}>
+      <div style={{ display: "flex", color: "#a2aebe", fontSize: 22 }}>
         Free and open source. Available for Apple Silicon.
       </div>
     </div>,

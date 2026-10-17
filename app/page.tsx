@@ -61,10 +61,11 @@ export default function Home() {
       <Header />
       <main id="main">
         <section
-          className="cinematic-hero page-width"
+          className="product-hero page-width"
           aria-labelledby="hero-title"
         >
           <div className="hero-copy">
+            <span className="section-kicker">Theatre for Mac</span>
             <h1 id="hero-title">Jellyfin on your Mac.</h1>
             <p>
               Watch movies and shows from your Jellyfin server. A native Mac app
