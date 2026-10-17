@@ -122,12 +122,6 @@ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 
 
-## Newsreader
-
-Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader) Newsreader-Italic[opsz,wght].ttf: Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)
-
-Newsreader is licensed under the SIL Open Font License, Version 1.1, reproduced above.
-
 ## Button logos
 
 Apple and GitHub logo SVGs are from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under CC0. The trademarks belong to their respective owners.

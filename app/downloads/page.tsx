@@ -41,10 +41,10 @@ export default function Downloads() {
             </div>
             <Image
               className="platform-preview"
-              src="/images/theatre-home-screen.webp"
+              src="/images/theatre-home-screen.png"
               alt="Theatre on Mac, with featured movies and Continue watching."
-              width={2000}
-              height={1163}
+              width={3680}
+              height={2234}
               sizes="(max-width: 800px) 85vw, 700px"
             />
           </article>

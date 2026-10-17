@@ -2,6 +2,7 @@ import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { HeaderSurface } from "./header-surface";
 import { appRelease } from "./links";
 
 export function DownloadButton() {
@@ -17,11 +18,11 @@ export function DownloadButton() {
 
 export function Header() {
   return (
-    <header className="site-header">
+    <HeaderSurface>
       <div className="nav-inner">
         <Link href="/" className="wordmark" aria-label="Theatre home">
-          <Image src="/images/theatre-icon.png" alt="" width={27} height={27} />
-          <span className="wordmark-text">theatre</span>
+          <Image src="/images/theatre-icon.png" alt="" width={34} height={34} />
+          <span className="wordmark-text">Theatre</span>
         </Link>
         <nav aria-label="Main navigation" className="nav-links">
           <a href="/#features">App</a>
@@ -39,7 +40,7 @@ export function Header() {
           </Link>
         </Button>
       </div>
-    </header>
+    </HeaderSurface>
   );
 }
 
@@ -61,7 +62,7 @@ export function Footer() {
 }
 
 export function AppPreview({ show = false }: { show?: boolean }) {
-  const image = show ? "theatre-shows.webp" : "theatre-home-screen.webp";
+  const image = show ? "theatre-shows.webp" : "theatre-home-screen.png";
   return (
     <a
       className="app-window"
@@ -92,8 +93,8 @@ export function AppPreview({ show = false }: { show?: boolean }) {
             ? "Theatre show page with seasons and episodes."
             : "Theatre home screen with featured movies and Continue watching."
         }
-        width={2000}
-        height={show ? 1109 : 1163}
+        width={show ? 2000 : 3680}
+        height={show ? 1109 : 2234}
         sizes={
           show
             ? "(max-width: 800px) 90vw, 950px"

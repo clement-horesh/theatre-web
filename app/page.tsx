@@ -5,7 +5,9 @@ import {
   Check,
   Keyboard,
   Moon,
+  MoreHorizontal,
   PictureInPicture2,
+  Play,
   SkipForward,
 } from "lucide-react";
 import Image from "next/image";
@@ -66,22 +68,21 @@ export default function Home() {
             aria-labelledby="hero-title"
           >
             <div className="hero-copy">
-              <h1 id="hero-title">
+              <h1 id="hero-title" aria-label="Jellyfin, but native">
                 <span className="hero-jellyfin-word">
                   <Image
-                    className="hero-jellyfin-logo"
+                    className="hero-title-logo"
                     src="/images/jellyfin-icon.svg"
                     alt=""
                     width={72}
                     height={72}
                   />
-                  Jellyfin
+                  Jellyfin,
                 </span>{" "}
-                on <em>your Mac.</em>
+                <span className="hero-native">but native</span>
               </h1>
               <p>
-                Watch movies and shows from your Jellyfin server. A native Mac
-                app with offline downloads.
+                Stream your movies and shows or download them to watch offline.
               </p>
               <div className="hero-actions">
                 <DownloadButton />
@@ -114,7 +115,6 @@ export default function Home() {
         >
           <div className="product-section-heading">
             <div>
-              <span className="section-kicker">App</span>
               <h2 id="app-title">
                 Your library,
                 <br />
@@ -130,19 +130,35 @@ export default function Home() {
             <div className="library-preview">
               <AppPreview show />
             </div>
+            <h3 className="showcase-caption">
+              Seasons, episodes, and where you left off.
+            </h3>
           </article>
           <div className="discovery-grid">
             <article>
               <h3>Watch the trailer</h3>
               <p>Watch trailers provided by Jellyfin in a separate window.</p>
               <div className="discovery-image trailer-image">
-                <Image
-                  src="/images/theatre-trailer.webp"
-                  alt="Theatre’s trailer card for The Devil Wears Prada 2."
-                  width={800}
-                  height={563}
-                  sizes="(max-width: 800px) 85vw, 350px"
-                />
+                <div className="trailer-card">
+                  <Image
+                    className="trailer-artwork"
+                    src="/images/theatre-trailer.jpg"
+                    alt="Dithered artwork for The Devil Wears Prada 2 trailer."
+                    width={720}
+                    height={507}
+                    sizes="(max-width: 540px) 80vw, 426px"
+                  />
+                  <div className="trailer-overlay" aria-hidden="true">
+                    <span className="trailer-title">Final Trailer</span>
+                    <div className="trailer-controls">
+                      <span>
+                        <Play size={15} fill="currentColor" />
+                        Play
+                      </span>
+                      <MoreHorizontal size={22} />
+                    </div>
+                  </div>
+                </div>
               </div>
             </article>
             <article>
@@ -153,11 +169,11 @@ export default function Home() {
               </p>
               <div className="discovery-image cast-image">
                 <Image
-                  src="/images/theatre-cast.webp"
+                  src="/images/theatre-cast.jpg"
                   alt="Cast portraits and roles on a Theatre detail page."
-                  width={1000}
-                  height={450}
-                  sizes="(max-width: 800px) 85vw, 350px"
+                  width={720}
+                  height={324}
+                  sizes="(max-width: 800px) 85vw, 520px"
                 />
               </div>
             </article>
@@ -169,11 +185,11 @@ export default function Home() {
               </p>
               <div className="discovery-image related-image">
                 <Image
-                  src="/images/theatre-related.webp"
+                  src="/images/theatre-related-2.jpg"
                   alt="Related titles recommended by Jellyfin in Theatre."
-                  width={770}
-                  height={630}
-                  sizes="(max-width: 800px) 85vw, 350px"
+                  width={720}
+                  height={198}
+                  sizes="1020px"
                 />
               </div>
             </article>
@@ -214,7 +230,6 @@ export default function Home() {
         >
           <div className="product-section-heading">
             <div>
-              <span className="section-kicker">Video player</span>
               <h2 id="player-title">
                 Play your movies
                 <br />
@@ -228,6 +243,9 @@ export default function Home() {
           </div>
           <div className="player-layout feature-panel">
             <PlayerShowcase />
+            <h3 className="showcase-caption">
+              Playback controls, right on the picture.
+            </h3>
           </div>
           <div className="player-features">
             <article>
