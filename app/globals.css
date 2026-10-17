@@ -54,8 +54,8 @@ body {
 h1,
 h2,
 .wordmark {
-  font-family: var(--font-inter), sans-serif;
-  font-weight: 500;
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 400;
 }
 h1,
 h2,
@@ -66,7 +66,7 @@ p {
 h2 {
   font-size: 32px;
   line-height: 1.08;
-  letter-spacing: -1px;
+  letter-spacing: -0.025em;
 }
 h3 {
   font-weight: 500;
@@ -108,10 +108,10 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 21px;
+  font-size: 28px;
   line-height: 1;
-  font-weight: 500;
-  letter-spacing: -0.6px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
 }
 .text-link:hover,
 .site-footer a:hover {
@@ -352,8 +352,8 @@ img {
     width: calc(100% - 40px);
   }
   .wordmark {
-    font-size: 21px;
-    letter-spacing: -0.6px;
+    font-size: 28px;
+    letter-spacing: -0.025em;
   }
   .hero-actions {
     margin-top: 25px;
@@ -397,7 +397,7 @@ img {
   }
   h2 {
     font-size: 28px;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.025em;
   }
   .desktop-break {
     display: none;
@@ -656,8 +656,8 @@ img {
 }
 @media (max-width: 540px) {
   .wordmark {
-    font-size: 21px;
-    letter-spacing: -0.6px;
+    font-size: 28px;
+    letter-spacing: -0.025em;
   }
   .feature-visual {
     height: 190px;
@@ -781,7 +781,7 @@ img {
 .downloads-heading h1 {
   margin-top: 30px;
   font-size: clamp(42px, 6vw, 64px);
-  letter-spacing: -2px;
+  letter-spacing: -0.025em;
   line-height: 1.1;
 }
 .downloads-heading p {
@@ -807,7 +807,7 @@ img {
     margin-bottom: 30px;
   }
   .downloads-heading h1 {
-    letter-spacing: -1.3px;
+    letter-spacing: -0.025em;
   }
   .downloads-heading p {
     font-size: 14px;
@@ -957,7 +957,10 @@ img {
 .product-hero h1 {
   font-size: clamp(52px, 6.2vw, 82px);
   line-height: 1.08;
-  letter-spacing: -4.3px;
+  letter-spacing: -0.025em;
+}
+.product-hero h1 em {
+  white-space: nowrap;
 }
 .product-hero .hero-copy > p:not(.download-note) {
   max-width: 490px;
@@ -1048,7 +1051,7 @@ img {
     max-width: 700px;
     font-size: 62px;
     margin-inline: auto;
-    letter-spacing: -3px;
+    letter-spacing: -0.025em;
   }
   .hero-cinema {
     min-height: 61vw;
@@ -1078,7 +1081,7 @@ img {
   }
   .product-hero h1 {
     font-size: 52px;
-    letter-spacing: -2.7px;
+    letter-spacing: -0.025em;
     max-width: 350px;
   }
   .product-hero .hero-copy > p:not(.download-note) {
@@ -1217,7 +1220,7 @@ img {
 .product-section-heading h2 {
   font-size: clamp(38px, 4.3vw, 54px);
   line-height: 1.08;
-  letter-spacing: -2px;
+  letter-spacing: -0.025em;
   text-wrap: balance;
 }
 .product-section-heading > p {
@@ -1318,7 +1321,7 @@ img {
 .feature-pair h2 {
   font-size: 34px;
   line-height: 1.1;
-  letter-spacing: -1.3px;
+  letter-spacing: -0.025em;
   max-width: 350px;
 }
 .feature-pair p {
@@ -1441,7 +1444,7 @@ img {
 .setup-section > .section-heading h2,
 .release-section > .section-heading h2 {
   font-size: 44px;
-  letter-spacing: -1.8px;
+  letter-spacing: -0.025em;
   line-height: 1.12;
 }
 .setup-steps {
@@ -1511,7 +1514,7 @@ img {
 }
 .questions-section h2 {
   font-size: 38px;
-  letter-spacing: -1.4px;
+  letter-spacing: -0.025em;
 }
 .release-section {
   padding-block: 100px 72px;
@@ -1539,7 +1542,7 @@ img {
 }
 .closing-copy h2 {
   font-size: 48px;
-  letter-spacing: -2px;
+  letter-spacing: -0.025em;
   line-height: 1.08;
   max-width: 350px;
 }
@@ -1598,7 +1601,7 @@ img {
 }
 .platform-card h2 {
   font-size: 30px;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.025em;
 }
 .platform-card > p {
   color: var(--muted);
@@ -1753,7 +1756,7 @@ img {
   }
   .product-section-heading h2 {
     font-size: 42px;
-    letter-spacing: -1.6px;
+    letter-spacing: -0.025em;
   }
   .library-feature {
     padding: 18px;
@@ -1875,7 +1878,7 @@ img {
   }
   .product-section-heading h2 {
     font-size: 36px;
-    letter-spacing: -1.4px;
+    letter-spacing: -0.025em;
   }
   .product-section-heading > p {
     font-size: 13px;
@@ -1948,7 +1951,7 @@ img {
   .setup-section > .section-heading h2,
   .release-section > .section-heading h2 {
     font-size: 34px;
-    letter-spacing: -1.3px;
+    letter-spacing: -0.025em;
   }
   .setup-caption {
     padding: 24px;
@@ -1970,7 +1973,7 @@ img {
   }
   .closing-copy h2 {
     font-size: 38px;
-    letter-spacing: -1.5px;
+    letter-spacing: -0.025em;
   }
   .platform-card {
     padding: 26px;

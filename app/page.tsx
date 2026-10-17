@@ -65,7 +65,9 @@ export default function Home() {
           aria-labelledby="hero-title"
         >
           <div className="hero-copy">
-            <h1 id="hero-title">Jellyfin on your Mac.</h1>
+            <h1 id="hero-title">
+              Jellyfin on <em>your Mac.</em>
+            </h1>
             <p>
               Watch movies and shows from your Jellyfin server. A native Mac app
               with offline downloads.

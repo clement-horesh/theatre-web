@@ -15,6 +15,16 @@ const inter = await readFile(
 const icon = await readFile(
   join(process.cwd(), "public/images/theatre-icon.png"),
 );
+const [newsreader, newsreaderItalic] = await Promise.all(
+  ["normal", "italic"].map((style) =>
+    readFile(
+      join(
+        process.cwd(),
+        `node_modules/@fontsource/newsreader/files/newsreader-latin-400-${style}.woff`,
+      ),
+    ),
+  ),
+);
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -36,8 +46,8 @@ export default function OpenGraphImage() {
           display: "flex",
           gap: "16px",
           alignItems: "center",
-          fontSize: 34,
-          fontFamily: "Inter",
+          fontSize: 42,
+          fontFamily: "Newsreader",
         }}
       >
         {/* ImageResponse renders an embedded image rather than a Next Image. */}
@@ -54,15 +64,15 @@ export default function OpenGraphImage() {
         style={{
           display: "flex",
           flexDirection: "column",
-          fontFamily: "Inter",
+          fontFamily: "Newsreader",
           fontSize: 94,
           fontWeight: 400,
           letterSpacing: "-2px",
-          lineHeight: 0.95,
+          lineHeight: 1.03,
         }}
       >
         <span>Jellyfin on</span>
-        <span style={{ color: "#9cceff" }}>your Mac.</span>
+        <span style={{ color: "#9cceff", fontStyle: "italic" }}>your Mac.</span>
       </div>
       <div style={{ display: "flex", color: "#a2aebe", fontSize: 22 }}>
         Free and open source. Available for Apple Silicon.
@@ -76,6 +86,18 @@ export default function OpenGraphImage() {
           data: new Uint8Array(inter).buffer,
           weight: 400,
           style: "normal",
+        },
+        {
+          name: "Newsreader",
+          data: new Uint8Array(newsreader).buffer,
+          weight: 400,
+          style: "normal",
+        },
+        {
+          name: "Newsreader",
+          data: new Uint8Array(newsreaderItalic).buffer,
+          weight: 400,
+          style: "italic",
         },
       ],
     },

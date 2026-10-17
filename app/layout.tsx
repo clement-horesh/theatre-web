@@ -17,6 +17,24 @@ const inter = localFont({
   display: "swap",
 });
 
+const newsreader = localFont({
+  src: [
+    {
+      path: "../node_modules/@fontsource/newsreader/files/newsreader-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../node_modules/@fontsource/newsreader/files/newsreader-latin-400-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-newsreader",
+  display: "swap",
+  adjustFontFallback: "Times New Roman",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -48,7 +66,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body className={inter.variable}>{children}</body>
+      <body className={`${inter.variable} ${newsreader.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
