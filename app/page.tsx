@@ -65,7 +65,6 @@ export default function Home() {
           aria-labelledby="hero-title"
         >
           <div className="hero-copy">
-            <span className="section-kicker">Theatre for Mac</span>
             <h1 id="hero-title">Jellyfin on your Mac.</h1>
             <p>
               Watch movies and shows from your Jellyfin server. A native Mac app
@@ -100,8 +99,14 @@ export default function Home() {
           aria-labelledby="app-title"
         >
           <div className="product-section-heading">
-            <span className="section-kicker">App</span>
-            <h2 id="app-title">Your library, in one place.</h2>
+            <div>
+              <span className="section-kicker">App</span>
+              <h2 id="app-title">
+                Your library,
+                <br />
+                in one place.
+              </h2>
+            </div>
             <p>
               Browse your Jellyfin movies and shows, pick a season, and keep
               watching. Your progress stays in sync with your server.
@@ -114,6 +119,8 @@ export default function Home() {
           </article>
           <div className="discovery-grid">
             <article>
+              <h3>Watch the trailer</h3>
+              <p>Watch trailers provided by Jellyfin in a separate window.</p>
               <div className="discovery-image trailer-image">
                 <Image
                   src="/images/theatre-trailer.webp"
@@ -123,10 +130,13 @@ export default function Home() {
                   sizes="(max-width: 800px) 85vw, 350px"
                 />
               </div>
-              <h3>Watch the trailer</h3>
-              <p>Watch trailers provided by Jellyfin in a separate window.</p>
             </article>
             <article>
+              <h3>Follow the cast</h3>
+              <p>
+                Select an actor or crew member to see their other movies and
+                shows on your server.
+              </p>
               <div className="discovery-image cast-image">
                 <Image
                   src="/images/theatre-cast.webp"
@@ -136,13 +146,13 @@ export default function Home() {
                   sizes="(max-width: 800px) 85vw, 350px"
                 />
               </div>
-              <h3>Follow the cast</h3>
-              <p>
-                Select an actor or crew member to see their other movies and
-                shows on your server.
-              </p>
             </article>
             <article>
+              <h3>Find your next watch</h3>
+              <p>
+                Explore related titles recommended by Jellyfin, all from your
+                own collection.
+              </p>
               <div className="discovery-image related-image">
                 <Image
                   src="/images/theatre-related.webp"
@@ -152,11 +162,6 @@ export default function Home() {
                   sizes="(max-width: 800px) 85vw, 350px"
                 />
               </div>
-              <h3>Find your next watch</h3>
-              <p>
-                Explore related titles recommended by Jellyfin, all from your
-                own collection.
-              </p>
             </article>
           </div>
           <div className="feature-pair">
@@ -194,8 +199,14 @@ export default function Home() {
           aria-labelledby="player-title"
         >
           <div className="product-section-heading">
-            <span className="section-kicker">Video player</span>
-            <h2 id="player-title">Play your movies and shows.</h2>
+            <div>
+              <span className="section-kicker">Video player</span>
+              <h2 id="player-title">
+                Play your movies
+                <br />
+                and shows.
+              </h2>
+            </div>
             <p>
               VLC playback in a separate window. The controls stay on the
               picture and disappear while you watch.
@@ -304,15 +315,25 @@ export default function Home() {
           <ol className="setup-steps">
             <li>
               <SetupIllustration kind="install" />
-              <span>01</span>
-              <h3>Install Theatre</h3>
-              <p>Open the DMG and drag Theatre into Applications.</p>
+              <div className="setup-caption">
+                <span>01</span>
+                <div>
+                  <h3>Install Theatre</h3>
+                  <p>Open the DMG and drag Theatre into Applications.</p>
+                </div>
+              </div>
             </li>
             <li>
               <SetupIllustration kind="connect" />
-              <span>02</span>
-              <h3>Sign in</h3>
-              <p>Enter your Jellyfin server address, username, and password.</p>
+              <div className="setup-caption">
+                <span>02</span>
+                <div>
+                  <h3>Sign in</h3>
+                  <p>
+                    Enter your Jellyfin server address, username, and password.
+                  </p>
+                </div>
+              </div>
             </li>
           </ol>
         </section>
