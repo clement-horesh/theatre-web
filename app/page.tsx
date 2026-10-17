@@ -67,16 +67,17 @@ export default function Home() {
           >
             <div className="hero-copy">
               <h1 id="hero-title">
-                <Image
-                  className="hero-jellyfin-logo"
-                  src="/images/jellyfin-icon.svg"
-                  alt=""
-                  width={72}
-                  height={72}
-                />
-                <span>
-                  Jellyfin on <em>your Mac.</em>
-                </span>
+                <span className="hero-jellyfin-word">
+                  <Image
+                    className="hero-jellyfin-logo"
+                    src="/images/jellyfin-icon.svg"
+                    alt=""
+                    width={72}
+                    height={72}
+                  />
+                  Jellyfin
+                </span>{" "}
+                on <em>your Mac.</em>
               </h1>
               <p>
                 Watch movies and shows from your Jellyfin server. A native Mac
@@ -84,7 +85,7 @@ export default function Home() {
               </p>
               <div className="hero-actions">
                 <DownloadButton />
-                <a className="text-link" href={appRelease.repository}>
+                <a className="button-secondary" href={appRelease.repository}>
                   <Image
                     className="github-logo"
                     src="/images/github.svg"

@@ -6,10 +6,7 @@ import { appRelease } from "./links";
 
 export function DownloadButton() {
   return (
-    <Button
-      asChild
-      className="download-button h-12 rounded-lg px-5 text-sm font-medium shadow-none"
-    >
+    <Button asChild className="download-button h-12 px-7 text-sm font-medium">
       <a href="/download">
         <Image src="/images/apple.svg" alt="" width={16} height={16} />
         Download for Mac
@@ -34,7 +31,7 @@ export function Header() {
         </nav>
         <Button
           asChild
-          className="nav-download h-10 rounded-lg px-4 text-sm font-medium shadow-none"
+          className="download-button nav-download h-10 px-5 text-sm font-medium"
         >
           <Link href="/downloads">
             <ArrowDownToLine size={16} aria-hidden="true" />

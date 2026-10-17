@@ -28,9 +28,8 @@
   --surface: #151b24;
   --surface-raised: #1b222d;
   --surface-hover: #242e3d;
-  --brand: #9cceff;
-  --brand-hover: #bedfff;
-  --brand-ink: #102236;
+  --brand: #5594ff;
+  --brand-ink: #071b3b;
 }
 * {
   box-sizing: border-box;
@@ -49,7 +48,7 @@ body {
   line-height: 1.6;
 }
 ::selection {
-  background: #9cceff30;
+  background: #5594ff40;
 }
 h1,
 h2,
@@ -121,14 +120,42 @@ img {
 .site-footer a:hover {
   color: #fff;
 }
-.download-button {
-  background: var(--brand);
-  color: var(--brand-ink);
-  border: 1px solid #ffffff18;
-  transition: background 0.2s;
+.download-button,
+.button-secondary {
+  border-radius: 999px;
+  border: 1px solid #ffffff80;
+  background: linear-gradient(180deg, #ededed 0%, #a8a8a8 80%);
+  color: #0d0d0f;
+  box-shadow:
+    inset 0 1px 0 #ffffffb3,
+    inset 0 -1px 0 #00000026,
+    0 4px 20px #0008;
+  transition:
+    filter 200ms ease,
+    box-shadow 200ms ease,
+    translate 200ms ease;
 }
-.download-button:hover {
-  background: var(--brand-hover);
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding-inline: 28px;
+  border-color: #ffffff2c;
+  background: linear-gradient(180deg, #292a2d 0%, #131416 80%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 1px 0 #ffffff45,
+    inset 0 -1px 0 #0006,
+    0 4px 20px #0006;
+}
+.download-button:hover,
+.button-secondary:hover {
+  filter: brightness(1.1);
 }
 .hero-copy {
   position: relative;
@@ -138,7 +165,7 @@ img {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 23px;
+  gap: 14px;
   margin-top: 30px;
 }
 .text-link {
@@ -274,7 +301,7 @@ img {
   color: var(--brand);
   font-size: 12px;
   padding: 5px 12px;
-  background: #9cceff12;
+  background: #5594ff12;
   border-radius: 7px;
 }
 .release-row h3 {
@@ -364,9 +391,10 @@ img {
     padding-inline: 15px;
     height: 44px;
   }
-  .hero-actions .text-link {
+  .hero-actions .button-secondary {
+    height: 44px;
+    padding-inline: 15px;
     font-size: 12px;
-    gap: 5px;
   }
   .download-note {
     font-size: 10px;
@@ -414,7 +442,7 @@ img {
     white-space: nowrap;
     padding-inline: 7px;
     font-size: 10px;
-    background: #9cceff12;
+    background: #5594ff12;
     padding: 5px 12px;
     border-radius: 7px;
   }
@@ -686,7 +714,7 @@ img {
   display: inline-flex;
   padding: 4px 9px;
   border-radius: 6px;
-  background: #9cceff0d;
+  background: #5594ff0d;
 }
 .player-showcase {
   overflow: hidden;
@@ -723,7 +751,7 @@ img {
   gap: 12px;
 }
 .marker-art > span {
-  border: 1px solid #9cceff30;
+  border: 1px solid #5594ff40;
   border-radius: 24px;
   padding: 8px 13px;
   background: #ffffff06;
@@ -812,7 +840,6 @@ img {
 }
 
 /* Motion stays in CSS; content remains usable without animation support. */
-.download-button,
 .app-window {
   transition:
     translate 240ms ease,
@@ -831,18 +858,11 @@ img {
 .questions [data-slot="accordion-item"] {
   transition: background-color 200ms ease;
 }
-.download-button:focus-visible {
-  background: var(--brand-hover);
-  box-shadow: 0 8px 24px #0003;
-}
+
 .questions [data-slot="accordion-item"]:focus-within {
   background: var(--surface-hover);
 }
 @media (hover: hover) and (pointer: fine) {
-  .download-button:hover {
-    background: var(--brand-hover);
-    box-shadow: 0 8px 24px #0003;
-  }
   .app-window:hover {
     box-shadow: 0 32px 70px #0009;
   }
@@ -891,11 +911,12 @@ img {
     animation-delay: 300ms;
   }
   @media (hover: hover) and (pointer: fine) {
-    .download-button:hover {
+    .download-button:hover,
+    .button-secondary:hover {
       translate: 0 -2px;
-      background: var(--brand-hover);
     }
-    .download-button:active {
+    .download-button:active,
+    .button-secondary:active {
       translate: 0 0;
     }
     .app-window:hover {
@@ -1136,16 +1157,8 @@ img {
     color 180ms ease;
 }
 .nav-links a:hover {
-  background: #9cceff0c;
+  background: #5594ff12;
   color: var(--text);
-}
-.nav-download {
-  background: var(--brand);
-  color: var(--brand-ink);
-  border: 0;
-}
-.nav-download:hover {
-  background: var(--brand-hover);
 }
 .product-hero {
   padding-top: 62px;
@@ -1178,7 +1191,7 @@ img {
   height: 7px;
   border-radius: 2px;
   background: currentColor;
-  box-shadow: 0 0 20px #9cceff40;
+  box-shadow: 0 0 20px #5594ff40;
 }
 .product-section-heading {
   display: grid;
@@ -1212,7 +1225,7 @@ img {
 .player-layout {
   padding: 32px;
   background:
-    radial-gradient(ellipse at 50% 0%, #9cceff1a, transparent 75%),
+    radial-gradient(ellipse at 50% 0%, #5594ff1a, transparent 75%),
     var(--surface);
 }
 .library-preview {
@@ -1320,11 +1333,11 @@ img {
   align-items: end;
   width: 94px;
   height: 120px;
-  border: 1px solid #9cceff30;
+  border: 1px solid #5594ff40;
   border-radius: 12px;
   padding: 14px 12px;
   color: var(--brand);
-  background: linear-gradient(150deg, #9cceff12, #9cceff02);
+  background: linear-gradient(150deg, #5594ff12, #5594ff02);
   font-size: 25px;
   letter-spacing: -1px;
   box-shadow: 0 12px 32px #0002;
@@ -1373,7 +1386,7 @@ img {
   margin: auto -22px 0;
   border: 0;
   border-radius: 0;
-  background: radial-gradient(ellipse at 50% 100%, #9cceff10, transparent 80%);
+  background: radial-gradient(ellipse at 50% 100%, #5594ff10, transparent 80%);
 }
 .player-features .audio-demo {
   width: 84%;
@@ -1430,7 +1443,7 @@ img {
   justify-content: center;
   height: 390px;
   overflow: hidden;
-  background: radial-gradient(ellipse at 50% 100%, #9cceff0c, transparent 80%);
+  background: radial-gradient(ellipse at 50% 100%, #5594ff12, transparent 80%);
 }
 .setup-connect {
   padding: 28px;
@@ -1448,7 +1461,7 @@ img {
   width: 32px;
   height: 32px;
   border-radius: 9px;
-  background: #9cceff0d;
+  background: #5594ff0d;
   color: var(--brand);
   font-size: 11px;
 }
@@ -1493,8 +1506,9 @@ img {
   margin-block: 20px 40px;
   border-radius: 28px;
   background:
-    radial-gradient(ellipse at 100% 0%, #e2f0ff, transparent 80%), var(--brand);
-  color: var(--brand-ink);
+    radial-gradient(ellipse at 100% 0%, #4a99ed88, transparent 75%),
+    linear-gradient(135deg, #0644ac, #102c63);
+  color: var(--text);
 }
 .closing-copy > img {
   margin-bottom: 28px;
@@ -1508,7 +1522,7 @@ img {
   max-width: 350px;
 }
 .closing-copy p {
-  color: #244361;
+  color: #d1e0f7;
   font-size: 14px;
   margin-top: 18px;
 }
@@ -1520,19 +1534,11 @@ img {
   min-width: 230px;
 }
 .closing-actions .download-button {
-  background: var(--brand-ink);
-  color: var(--text);
   width: 100%;
-}
-.closing-actions .download-button:hover {
-  background: #1c3653;
-}
-.closing-actions .download-button img {
-  filter: invert(1);
 }
 .closing-actions .download-note,
 .closing-actions .text-link {
-  color: #244361;
+  color: #d1e0f7;
   font-size: 11px;
 }
 .platform-grid {
@@ -1552,7 +1558,7 @@ img {
 }
 .platform-mac {
   grid-row: span 2;
-  background: linear-gradient(145deg, #213149, #151b24 80%);
+  background: linear-gradient(145deg, #143267, #151b24 80%);
   overflow: hidden;
   padding-bottom: 0;
 }
@@ -1610,7 +1616,7 @@ img {
   background: var(--surface-raised);
   color: #8a95a5;
   border: 0;
-  border-radius: 9px;
+  border-radius: 999px;
   padding: 11px 15px;
   margin-top: auto;
   font: inherit;
@@ -1631,7 +1637,7 @@ img {
   .player-features article:hover {
     box-shadow:
       0 16px 40px #0003,
-      inset 0 0 0 1px #9cceff16;
+      inset 0 0 0 1px #5594ff16;
   }
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -1958,35 +1964,18 @@ img {
     );
   mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
 }
-.product-hero h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.24em;
+.hero-jellyfin-word {
+  white-space: nowrap;
 }
 .hero-jellyfin-logo {
-  width: 0.78em;
-  height: 0.78em;
-  flex-shrink: 0;
-}
-.product-hero h1 > span {
-  min-width: 0;
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  margin-right: 0.2em;
+  vertical-align: baseline;
 }
 .product-hero .hero-copy > p:not(.download-note),
-.product-hero .text-link,
 .product-hero .download-note,
 .product-hero .download-note a {
   color: #c6d7ee;
-}
-@media (max-width: 540px) {
-  .product-hero h1 {
-    align-items: flex-start;
-  }
-  .product-hero h1 > span {
-    max-width: 4.3em;
-    text-align: left;
-  }
-  .hero-jellyfin-logo {
-    margin-top: 0.06em;
-  }
 }
