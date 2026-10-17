@@ -108,7 +108,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 28px;
+  font-size: 23px;
   line-height: 1;
   font-weight: 400;
   letter-spacing: -0.025em;
@@ -210,13 +210,13 @@ img {
   color: #888;
   margin-left: 30px;
 }
-.features {
+.features,
+.player-section {
   --app-card-gap: 20px;
+}
+.features {
   display: grid;
   gap: var(--app-card-gap);
-}
-.features > .product-section-heading {
-  margin-bottom: 22px;
 }
 .section-heading {
   margin-bottom: 40px;
@@ -350,10 +350,6 @@ img {
 @media (max-width: 540px) {
   .page-width {
     width: calc(100% - 40px);
-  }
-  .wordmark {
-    font-size: 28px;
-    letter-spacing: -0.025em;
   }
   .hero-actions {
     margin-top: 25px;
@@ -655,10 +651,6 @@ img {
   }
 }
 @media (max-width: 540px) {
-  .wordmark {
-    font-size: 28px;
-    letter-spacing: -0.025em;
-  }
   .feature-visual {
     height: 190px;
     margin-bottom: 15px;
@@ -795,7 +787,8 @@ img {
   margin-bottom: 12px;
 }
 @media (max-width: 800px) {
-  .features {
+  .features,
+  .player-section {
     --app-card-gap: 18px;
   }
 }
@@ -926,7 +919,7 @@ img {
         transform: none;
       }
     }
-    .features > .product-section-heading,
+    #features > .product-section-heading,
     .library-feature,
     .discovery-grid,
     .feature-pair,
@@ -1238,7 +1231,8 @@ img {
   border-radius: 24px;
   overflow: hidden;
 }
-.library-feature {
+.library-feature,
+.player-layout {
   padding: 32px;
   background:
     radial-gradient(ellipse at 50% 0%, #9cceff1a, transparent 75%),
@@ -1247,7 +1241,8 @@ img {
 .library-preview {
   width: 100%;
 }
-.library-preview .app-window {
+.library-preview .app-window,
+.player-layout .player-showcase {
   border-radius: 13px;
   border-color: #b9d6ff26;
 }
@@ -1362,31 +1357,20 @@ img {
 }
 .player-section {
   margin-top: 120px;
-  padding: 48px;
-  border-radius: 32px;
-  background: #131923;
-}
-.player-layout {
-  padding: 0;
-}
-.player-layout .player-showcase {
-  border: 1px solid #b9d6ff20;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px #0005;
 }
 .player-features {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-  margin-top: 28px;
+  gap: var(--app-card-gap);
+  margin-top: var(--app-card-gap);
 }
 .player-features article {
   display: flex;
   flex-direction: column;
   min-width: 0;
   padding: 24px 22px 0;
-  border-radius: 20px;
-  background: var(--surface-raised);
+  border-radius: 24px;
+  background: var(--surface);
   overflow: hidden;
 }
 .player-features h3 {
@@ -1713,9 +1697,6 @@ img {
   .feature-pair > article {
     padding: 28px;
   }
-  .player-section {
-    padding: 32px;
-  }
   .player-features {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1758,7 +1739,8 @@ img {
     font-size: 42px;
     letter-spacing: -0.025em;
   }
-  .library-feature {
+  .library-feature,
+  .player-layout {
     padding: 18px;
   }
   .discovery-grid {
@@ -1800,8 +1782,6 @@ img {
   }
   .player-section {
     margin-top: 72px;
-    padding: 32px 24px 24px;
-    border-radius: 26px;
   }
   .setup-section {
     padding-block: 80px 60px;
@@ -1852,6 +1832,9 @@ img {
   .platform-unavailable {
     min-height: 310px;
   }
+  .features > .product-section-heading {
+    margin-bottom: 14px;
+  }
 }
 @media (max-width: 540px) {
   .site-header {
@@ -1887,11 +1870,13 @@ img {
     margin-bottom: 15px;
     font-size: 12px;
   }
-  .library-feature {
+  .library-feature,
+  .player-layout {
     padding: 10px;
     border-radius: 16px;
   }
-  .library-preview .app-window {
+  .library-preview .app-window,
+  .player-layout .player-showcase {
     border-radius: 8px;
   }
   .discovery-grid article {
@@ -1917,25 +1902,12 @@ img {
     height: 108px;
     font-size: 22px;
   }
-  .player-section {
-    width: calc(100% - 24px);
-    padding: 28px 14px 14px;
-    border-radius: 22px;
-  }
-  .player-section > .product-section-heading {
-    padding-inline: 10px;
-  }
-  .player-layout .player-showcase {
-    border-radius: 10px;
-  }
   .player-features {
     grid-template-columns: 1fr;
-    gap: 14px;
-    margin-top: 18px;
   }
   .player-features article {
     padding: 24px 24px 0;
-    border-radius: 16px;
+    border-radius: 22px;
   }
   .player-features .feature-visual,
   .player-features .player-feature-art {

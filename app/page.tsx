@@ -214,7 +214,7 @@ export default function Home() {
               picture and disappear while you watch.
             </p>
           </div>
-          <div className="player-layout">
+          <div className="player-layout feature-panel">
             <PlayerShowcase />
           </div>
           <div className="player-features">
