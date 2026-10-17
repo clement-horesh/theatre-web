@@ -60,40 +60,51 @@ export default function Home() {
       </a>
       <Header />
       <main id="main">
-        <section
-          className="product-hero page-width"
-          aria-labelledby="hero-title"
-        >
-          <div className="hero-copy">
-            <h1 id="hero-title">
-              Jellyfin on <em>your Mac.</em>
-            </h1>
-            <p>
-              Watch movies and shows from your Jellyfin server. A native Mac app
-              with offline downloads.
-            </p>
-            <div className="hero-actions">
-              <DownloadButton />
-              <a className="text-link" href={appRelease.repository}>
+        <div className="hero-surface">
+          <section
+            className="product-hero page-width"
+            aria-labelledby="hero-title"
+          >
+            <div className="hero-copy">
+              <h1 id="hero-title">
                 <Image
-                  className="github-logo"
-                  src="/images/github.svg"
+                  className="hero-jellyfin-logo"
+                  src="/images/jellyfin-icon.svg"
                   alt=""
-                  width={17}
-                  height={17}
+                  width={72}
+                  height={72}
                 />
-                View on GitHub
-              </a>
+                <span>
+                  Jellyfin on <em>your Mac.</em>
+                </span>
+              </h1>
+              <p>
+                Watch movies and shows from your Jellyfin server. A native Mac
+                app with offline downloads.
+              </p>
+              <div className="hero-actions">
+                <DownloadButton />
+                <a className="text-link" href={appRelease.repository}>
+                  <Image
+                    className="github-logo"
+                    src="/images/github.svg"
+                    alt=""
+                    width={17}
+                    height={17}
+                  />
+                  View on GitHub
+                </a>
+              </div>
+              <p className="download-note">
+                Free and open source ·{" "}
+                <a href={appRelease.notes}>
+                  Version {appRelease.version} · Public beta
+                </a>
+              </p>
             </div>
-            <p className="download-note">
-              Free and open source · Apple Silicon · macOS 13+ ·{" "}
-              <a href={appRelease.notes}>
-                Version {appRelease.version} · Public beta
-              </a>
-            </p>
-          </div>
-          <HeroShowcase />
-        </section>
+            <HeroShowcase />
+          </section>
+        </div>
 
         <section
           id="features"

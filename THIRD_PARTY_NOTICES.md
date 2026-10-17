@@ -131,3 +131,7 @@ Newsreader is licensed under the SIL Open Font License, Version 1.1, reproduced 
 ## Button logos
 
 Apple and GitHub logo SVGs are from [Simple Icons](https://github.com/simple-icons/simple-icons), distributed under CC0. The trademarks belong to their respective owners.
+
+## Jellyfin logo
+
+The unmodified Jellyfin icon in `public/images/jellyfin-icon.svg` is from the [Jellyfin Project's official artwork](https://github.com/jellyfin/jellyfin-ux/blob/master/logos/SVG/jellyfin-icon--color-on-dark.svg), licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The Jellyfin name and logo belong to the Jellyfin Project.

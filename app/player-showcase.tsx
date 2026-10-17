@@ -24,7 +24,6 @@ export function PlayerShowcase({ compact = false }: { compact?: boolean }) {
 export function HeroShowcase() {
   return (
     <div className="hero-cinema">
-      <div className="cinema-glow" aria-hidden="true" />
       <div className="cinema-library">
         <AppPreview />
       </div>

@@ -977,16 +977,6 @@ img {
   min-height: 625px;
   margin: 46px auto 0;
 }
-.cinema-glow {
-  position: absolute;
-  inset: -40px 0 20px;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse at 28% 42%, #97312f55, transparent 58%),
-    radial-gradient(ellipse at 78% 74%, #21647b65, transparent 58%);
-  filter: blur(50px);
-  pointer-events: none;
-}
 .cinema-library {
   width: 84%;
   margin-left: 5%;
@@ -1109,10 +1099,6 @@ img {
   .cinema-resume > span {
     display: none;
   }
-  .cinema-glow {
-    inset: 0 0 -10px;
-    filter: blur(35px);
-  }
 }
 /* Shared framing follows the app: inset navigation, rounded windows, quiet chrome. */
 .site-header {
@@ -1164,23 +1150,10 @@ img {
 .product-hero {
   padding-top: 62px;
 }
-.product-hero::before {
-  content: "";
-  position: absolute;
-  inset: -90px 0 30%;
-  background: radial-gradient(ellipse at 50% 15%, #5b9dce16, transparent 65%);
-  z-index: -2;
-  pointer-events: none;
-}
 .product-hero .hero-copy > p:not(.download-note) {
   color: var(--muted);
   font-size: 16px;
   line-height: 1.7;
-}
-.cinema-glow {
-  background:
-    radial-gradient(ellipse at 25% 40%, #6487b53d, transparent 65%),
-    radial-gradient(ellipse at 80% 75%, #9cceff20, transparent 60%);
 }
 .cinema-resume {
   background: #1b222df5;
@@ -1860,9 +1833,6 @@ img {
   .product-hero .hero-copy > p:not(.download-note) {
     font-size: 14px;
   }
-  .product-hero::before {
-    inset-inline: 0;
-  }
   .product-section-heading h2 {
     font-size: 36px;
     letter-spacing: -0.025em;
@@ -1963,5 +1933,60 @@ img {
   }
   .platform-preview {
     width: calc(100% + 30px);
+  }
+}
+.hero-surface {
+  position: relative;
+  isolation: isolate;
+}
+.hero-surface::before {
+  content: "";
+  position: absolute;
+  inset: -100px 0 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, #c9e1ff38 0.75px, transparent 1px) 0 0 / 11px 11px,
+    linear-gradient(
+      180deg,
+      #020914 0%,
+      #041535 25%,
+      #0644ac 48%,
+      #4a99ed 68%,
+      #e7f6ff 86%,
+      #f7fcff 100%
+    );
+  mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
+}
+.product-hero h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.24em;
+}
+.hero-jellyfin-logo {
+  width: 0.78em;
+  height: 0.78em;
+  flex-shrink: 0;
+}
+.product-hero h1 > span {
+  min-width: 0;
+}
+.product-hero .hero-copy > p:not(.download-note),
+.product-hero .text-link,
+.product-hero .download-note,
+.product-hero .download-note a {
+  color: #c6d7ee;
+}
+@media (max-width: 540px) {
+  .product-hero h1 {
+    align-items: flex-start;
+  }
+  .product-hero h1 > span {
+    max-width: 4.3em;
+    text-align: left;
+  }
+  .hero-jellyfin-logo {
+    margin-top: 0.06em;
   }
 }
