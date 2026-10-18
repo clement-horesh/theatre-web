@@ -498,21 +498,18 @@ img {
 }
 .offline-art {
   position: relative;
-  width: 310px;
+  width: 380px;
   max-width: 100%;
   margin: 38px auto 5px;
   padding: 0 22px 0 0;
 }
 .offline-preview {
-  padding: 10px;
-  background: var(--surface-raised);
-  border: 1px solid #ffffff1c;
   border-radius: 17px;
-  box-shadow: 0 20px 45px #0005;
 }
 .offline-preview img {
   width: 100%;
   border-radius: 10px;
+  mix-blend-mode: lighten;
 }
 .offline-status {
   display: flex;
@@ -1421,30 +1418,37 @@ img {
   margin: auto auto 44px;
 }
 .format-art {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+  display: grid;
+  place-items: center;
+  height: 300px;
   min-height: 280px;
   flex: 1;
-  margin-bottom: 32px;
+  width: calc(100% + 80px);
+  margin: 0 -40px 32px;
+  overflow: hidden;
+  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
 }
-.format-art span {
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 92px);
+  gap: 12px;
+}
+.format-tile {
   display: flex;
-  align-items: end;
-  width: 94px;
-  height: 120px;
-  border: 1px solid #5594ff40;
-  border-radius: 12px;
-  padding: 14px 12px;
-  color: var(--brand);
-  background: linear-gradient(150deg, #ffffff0c, #ffffff02);
-  font-size: 25px;
-  letter-spacing: -1px;
-  box-shadow: 0 12px 32px #0002;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 76px;
+  border: 1px solid #ffffff18;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #ffffff08, #ffffff02);
+  color: #c7c7cc;
 }
-.format-art span:nth-child(2) {
-  translate: 0 -16px;
+.format-tile span {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
 }
 .player-section {
   margin-top: 120px;
@@ -1786,6 +1790,10 @@ img {
   .feature-pair > article {
     padding: 28px;
   }
+  .format-art {
+    width: calc(100% + 56px);
+    margin-inline: -28px;
+  }
   .questions-section {
     gap: 40px;
     padding: 36px;
@@ -1855,6 +1863,10 @@ img {
   .feature-pair > article {
     min-height: 425px;
     padding: 32px;
+  }
+  .format-art {
+    width: calc(100% + 64px);
+    margin-inline: -32px;
   }
   .player-section {
     margin-top: 72px;
@@ -1983,14 +1995,18 @@ img {
     font-size: 24px;
   }
   .format-art {
-    gap: 10px;
-    min-height: 200px;
+    height: 260px;
+    min-height: 260px;
+    flex: none;
+    width: calc(100% + 48px);
+    margin-inline: -24px;
   }
-  .format-art span {
-    width: clamp(60px, 18vw, 78px);
-    height: 108px;
-    padding-inline: 8px;
-    font-size: 22px;
+  .format-grid {
+    grid-template-columns: repeat(6, 76px);
+    gap: 10px;
+  }
+  .format-tile {
+    height: 68px;
   }
   .player-features article {
     min-height: 0;

@@ -1,10 +1,4 @@
-import {
-  ArrowRight,
-  Check,
-  Folder,
-  HardDriveDownload,
-  Volume2,
-} from "lucide-react";
+import { ArrowRight, Check, FileVideo, Folder, Volume2 } from "lucide-react";
 import Image from "next/image";
 
 export function TrackIllustration({ kind }: { kind: "subtitles" | "audio" }) {
@@ -80,11 +74,11 @@ export function DownloadIllustration() {
     <div className="offline-art" aria-hidden="true">
       <div className="offline-preview">
         <Image
-          src="/images/theatre-continue.webp"
+          src="/images/theatre-download.jpg"
           alt=""
-          width={395}
-          height={235}
-          sizes="280px"
+          width={720}
+          height={406}
+          sizes="(max-width: 540px) 80vw, 380px"
         />
         <span className="offline-status">
           <Check size={14} />
@@ -92,8 +86,55 @@ export function DownloadIllustration() {
         </span>
       </div>
       <span className="offline-download">
-        <HardDriveDownload size={30} strokeWidth={1.5} />
+        <Image
+          src="/images/download-dotted.svg"
+          alt=""
+          width={38}
+          height={38}
+        />
       </span>
+    </div>
+  );
+}
+
+const videoFormats = [
+  "MKV",
+  "MP4",
+  "MOV",
+  "AVI",
+  "WEBM",
+  "M4V",
+  "MPEG",
+  "MPG",
+  "TS",
+  "M2TS",
+  "MTS",
+  "VOB",
+  "WMV",
+  "ASF",
+  "FLV",
+  "OGV",
+  "3GP",
+  "3G2",
+  "M2V",
+  "DIVX",
+  "MXF",
+  "F4V",
+  "OGG",
+  "RM",
+];
+
+export function FormatsIllustration() {
+  return (
+    <div className="format-art" aria-hidden="true">
+      <div className="format-grid">
+        {videoFormats.map((format) => (
+          <div className="format-tile" key={format}>
+            <FileVideo size={24} strokeWidth={1.3} />
+            <span>.{format.toLowerCase()}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

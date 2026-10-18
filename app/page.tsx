@@ -20,6 +20,7 @@ import {
 import { AppPreview, DownloadButton, Footer, Header } from "./components";
 import {
   DownloadIllustration,
+  FormatsIllustration,
   SetupIllustration,
   TrackIllustration,
 } from "./illustrations";
@@ -207,11 +208,7 @@ export default function Home() {
               <DownloadIllustration />
             </article>
             <article className="feature-panel formats-feature">
-              <div className="format-art" aria-hidden="true">
-                <span>.mkv</span>
-                <span>.mp4</span>
-                <span>.mov</span>
-              </div>
+              <FormatsIllustration />
               <div>
                 <h2>Play more formats.</h2>
                 <p>
