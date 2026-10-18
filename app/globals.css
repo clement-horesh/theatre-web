@@ -534,108 +534,6 @@ img {
   box-shadow: 0 10px 25px #0005;
   color: var(--text);
 }
-.feature-visual {
-  height: 185px;
-  margin-bottom: 24px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--surface-raised);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.subtitle-demo {
-  width: 240px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 26px;
-}
-.subtitle-sample {
-  font-size: 21px;
-  font-weight: 500;
-  color: #eee;
-  padding: 4px 12px;
-  background: #0007;
-  border-radius: 5px;
-}
-.subtitle-options {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  background: var(--surface-hover);
-  border: 1px solid #ffffff12;
-  border-radius: 9px;
-  box-shadow: 0 8px 25px #0002;
-}
-.subtitle-options > span:first-child {
-  font-size: 15px;
-}
-.size-track {
-  height: 3px;
-  width: 47px;
-  background: #a1a1aa;
-  border-radius: 10px;
-  position: relative;
-  margin-inline: 2px 6px;
-}
-.size-track::after {
-  content: "";
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  top: -3px;
-  left: 26px;
-  background: #eee;
-}
-.subtitle-options i {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #fff;
-}
-.subtitle-options i:nth-last-child(2) {
-  background: #f9d978;
-}
-.subtitle-options i:last-child {
-  background: #99c5e8;
-}
-.audio-demo {
-  width: 238px;
-  padding: 14px;
-  border: 1px solid #ffffff16;
-  border-radius: 10px;
-  background: var(--surface-hover);
-  box-shadow: 0 12px 25px #0003;
-  font-size: 12px;
-}
-.audio-demo > span {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  padding: 7px;
-}
-.audio-demo > .audio-label {
-  color: var(--muted);
-  font-size: 11px;
-  margin-bottom: 5px;
-  padding-top: 0;
-}
-.audio-demo > span:nth-child(2) {
-  background: #ffffff09;
-  border-radius: 5px;
-}
-.audio-demo i {
-  width: 13px;
-}
-.audio-codec {
-  margin-left: auto;
-  color: var(--muted);
-  font-size: 10px;
-}
 .install-demo {
   display: flex;
   align-items: center;
@@ -668,44 +566,13 @@ img {
   mix-blend-mode: lighten;
 }
 @media (max-width: 800px) {
-  .feature-visual {
-    height: 165px;
-  }
-  .audio-demo {
-    width: 92%;
-  }
-  .subtitle-demo {
-    transform: scale(0.85);
-  }
   .install-demo {
     gap: 10px;
   }
 }
 @media (max-width: 540px) {
-  .feature-visual {
-    height: 190px;
-    margin-bottom: 15px;
-  }
-  .audio-demo {
-    width: 250px;
-  }
-  .subtitle-demo {
-    transform: none;
-  }
   .install-demo {
     gap: 28px;
-  }
-}
-@media (max-width: 800px) {
-  .feature-visual {
-    height: 200px;
-    margin-bottom: 18px;
-  }
-  .subtitle-demo {
-    transform: none;
-  }
-  .audio-demo {
-    width: 250px;
   }
 }
 
@@ -760,19 +627,7 @@ img {
   gap: 7px;
   color: var(--text);
 }
-.output-art {
-  gap: 35px;
-}
-.output-art > span {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-.output-art small {
-  font-size: 9px;
-  color: var(--muted);
-}
+
 .shortcuts-art {
   gap: 13px;
 }
@@ -788,9 +643,6 @@ img {
 @media (max-width: 1000px) {
   .autoplay-art {
     gap: 11px;
-  }
-  .output-art {
-    gap: 20px;
   }
 }
 
@@ -862,7 +714,7 @@ img {
   background: var(--surface-hover);
 }
 @media (hover: hover) and (pointer: fine) {
-  .app-window:hover {
+  a.app-window:hover {
     box-shadow: 0 32px 70px #0009;
   }
   .questions [data-slot="accordion-item"]:hover {
@@ -918,7 +770,7 @@ img {
     .button-secondary:active {
       translate: 0 0;
     }
-    .app-window:hover {
+    a.app-window:hover {
       translate: 0 -3px;
     }
     .text-link:hover svg {
@@ -1484,8 +1336,62 @@ img {
   max-width: 390px;
   text-wrap: balance;
 }
-.player-features .feature-visual,
-.player-features .player-feature-art {
+.player-capture {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 340px;
+  margin-bottom: 30px;
+}
+.player-capture-frame {
+  position: relative;
+  width: min(100%, 330px);
+  overflow: hidden;
+  border-radius: 18px;
+}
+.capture-subtitles .player-capture-frame {
+  aspect-ratio: 696 / 708;
+}
+.capture-subtitles img {
+  width: 100%;
+}
+.capture-audio .player-capture-frame {
+  width: min(100%, 380px);
+  aspect-ratio: 1.9;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 82%,
+    transparent
+  );
+}
+.capture-output .player-capture-frame {
+  width: min(100%, 380px);
+  aspect-ratio: 1.7;
+  mask-image:
+    linear-gradient(to right, #000 65%, transparent),
+    linear-gradient(to bottom, #000 60%, transparent);
+  mask-composite: intersect;
+}
+.capture-audio img,
+.capture-output img {
+  position: absolute;
+  max-width: none;
+  height: auto;
+}
+.capture-audio img {
+  width: 158%;
+  left: -42%;
+  top: -24%;
+}
+.capture-output img {
+  width: 300%;
+  left: -10%;
+  top: -7%;
+}
+.player-feature-art {
   flex: 1;
   height: 220px;
   min-height: 220px;
@@ -1494,15 +1400,6 @@ img {
   border: 0;
   border-radius: 0;
   background: transparent;
-}
-.player-features .audio-demo {
-  width: 84%;
-}
-.player-features .subtitle-demo {
-  width: 100%;
-  transform: scale(0.9);
-}
-.player-feature-art {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1516,9 +1413,7 @@ img {
   padding: 8px 11px;
   font-size: 10px;
 }
-.player-features .output-art {
-  gap: 26px;
-}
+
 .setup-section {
   padding-block: 120px 80px;
 }
@@ -1747,19 +1642,85 @@ img {
   }
 }
 @media (prefers-reduced-motion: no-preference) {
+  .hero-cinema {
+    --motion-scale: 1.5;
+  }
+  .cinema-library {
+    --float-x: 2px;
+    --float-y: -6px;
+    --float-rotation: 0.15deg;
+    --float-duration: 10s;
+    --float-delay: -2s;
+    --scroll-x: 0px;
+    --scroll-y: -22px;
+  }
+  .cinema-resume {
+    --float-x: -5px;
+    --float-y: -10px;
+    --float-rotation: -0.5deg;
+    --float-duration: 8s;
+    --float-delay: -4s;
+    --scroll-x: -12px;
+    --scroll-y: -60px;
+  }
+  .cinema-player {
+    --float-x: 4px;
+    --float-y: -8px;
+    --float-rotation: 0.35deg;
+    --float-duration: 9s;
+    --float-delay: -1s;
+    --scroll-x: 12px;
+    --scroll-y: -40px;
+  }
+  @keyframes theatre-float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(
+          calc(var(--float-x) * var(--motion-scale)),
+          calc(var(--float-y) * var(--motion-scale)),
+          0
+        )
+        rotate(calc(var(--float-rotation) * var(--motion-scale)));
+    }
+  }
   .cinema-library,
   .cinema-resume,
   .cinema-player {
-    animation: theatre-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation: theatre-float var(--float-duration) ease-in-out
+      var(--float-delay) infinite;
   }
-  .cinema-library {
-    animation-delay: 120ms;
+  @supports (animation-timeline: scroll(root)) {
+    @keyframes theatre-parallax {
+      from {
+        translate: 0 0;
+      }
+      to {
+        translate: calc(var(--scroll-x) * var(--motion-scale))
+          calc(var(--scroll-y) * var(--motion-scale));
+      }
+    }
+    .cinema-library,
+    .cinema-resume,
+    .cinema-player {
+      animation-name: theatre-float, theatre-parallax;
+      animation-duration: var(--float-duration), auto;
+      animation-timing-function: ease-in-out, linear;
+      animation-delay: var(--float-delay), 0s;
+      animation-iteration-count: infinite, 1;
+      animation-fill-mode: none, both;
+      animation-timeline: auto, scroll(root);
+      animation-range:
+        normal,
+        0px 100vh;
+    }
   }
-  .cinema-resume {
-    animation-delay: 220ms;
-  }
-  .cinema-player {
-    animation-delay: 300ms;
+  @media (max-width: 540px) {
+    .hero-cinema {
+      --motion-scale: 0.65;
+    }
   }
   @media (hover: hover) and (pointer: fine) {
     .player-features article:hover {
@@ -2008,24 +1969,22 @@ img {
   .format-tile {
     height: 68px;
   }
+  .player-capture {
+    min-height: 280px;
+    margin-bottom: 24px;
+  }
   .player-features article {
     min-height: 0;
     padding: 28px 24px;
     border-radius: 28px;
   }
-  .player-features .feature-visual,
   .player-features .player-feature-art {
     width: 100%;
     margin-inline: 0;
     height: 180px;
     min-height: 180px;
   }
-  .player-features .audio-demo {
-    width: min(250px, 100%);
-  }
-  .player-features .subtitle-demo {
-    transform: none;
-  }
+
   .setup-section > .section-heading h2,
   .release-section > .section-heading h2 {
     font-size: 34px;

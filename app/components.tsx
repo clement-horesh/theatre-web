@@ -63,13 +63,16 @@ export function Footer() {
 
 export function AppPreview({ show = false }: { show?: boolean }) {
   const image = show ? "theatre-shows.webp" : "theatre-home-screen.png";
+  const Preview = show ? "a" : "div";
   return (
-    <a
+    <Preview
       className="app-window"
-      href={`/images/${image}`}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`View the full-size Theatre ${show ? "show" : "home"} screenshot`}
+      href={show ? `/images/${image}` : undefined}
+      target={show ? "_blank" : undefined}
+      rel={show ? "noreferrer" : undefined}
+      aria-label={
+        show ? "View the full-size Theatre show screenshot" : undefined
+      }
     >
       {show && (
         <div className="window-chrome" aria-hidden="true">
@@ -102,6 +105,6 @@ export function AppPreview({ show = false }: { show?: boolean }) {
         }
         preload={!show}
       />
-    </a>
+    </Preview>
   );
 }

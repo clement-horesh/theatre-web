@@ -1,12 +1,10 @@
 import {
-  Airplay,
   ArrowRight,
   ArrowUpRight,
   Check,
   Keyboard,
   Moon,
   MoreHorizontal,
-  PictureInPicture2,
   Play,
   SkipForward,
 } from "lucide-react";
@@ -21,8 +19,8 @@ import { AppPreview, DownloadButton, Footer, Header } from "./components";
 import {
   DownloadIllustration,
   FormatsIllustration,
+  PlayerFeatureCapture,
   SetupIllustration,
-  TrackIllustration,
 } from "./illustrations";
 import { appRelease } from "./links";
 import { HeroShowcase, PlayerShowcase } from "./player-showcase";
@@ -258,7 +256,7 @@ export default function Home() {
                   <Check size={12} />
                 </i>
               </div>
-              <h3>One episode after another</h3>
+              <h3>Autoplay the next episode</h3>
               <p>
                 The next episode starts when the current one ends. Autoplay is
                 on by default and can be changed in Settings.
@@ -272,7 +270,7 @@ export default function Home() {
                   <SkipForward size={13} />
                 </span>
               </div>
-              <h3>Skip intros. Move past credits.</h3>
+              <h3>Skip intros and credits</h3>
               <p>
                 Skip Intro appears during a server-provided intro. At the
                 credits, Next Episode appears if Jellyfin supplies an Outro
@@ -280,33 +278,24 @@ export default function Home() {
               </p>
             </article>
             <article>
-              <TrackIllustration kind="subtitles" />
-              <h3>Subtitles that suit you</h3>
+              <PlayerFeatureCapture kind="subtitles" />
+              <h3>Personalise your subtitles</h3>
               <p>
                 Choose a language and adjust text size, color, and position.
                 Your preferred language is remembered for later videos.
               </p>
             </article>
             <article>
-              <TrackIllustration kind="audio" />
-              <h3>Your audio, your pace</h3>
+              <PlayerFeatureCapture kind="audio" />
+              <h3>Switch between audio sources</h3>
               <p>
                 Switch audio tracks, save your preferred language, or change
                 playback speed.
               </p>
             </article>
             <article>
-              <div className="player-feature-art output-art" aria-hidden="true">
-                <span>
-                  <PictureInPicture2 size={29} />
-                  <small>Picture in Picture</small>
-                </span>
-                <span>
-                  <Airplay size={29} />
-                  <small>AirPlay</small>
-                </span>
-              </div>
-              <h3>A window that fits</h3>
+              <PlayerFeatureCapture kind="output" />
+              <h3>AirPlay and PiP</h3>
               <p>
                 Resize with the video’s aspect ratio locked, enter full screen,
                 or use native Picture in Picture and AirPlay with compatible
@@ -323,7 +312,7 @@ export default function Home() {
                 <kbd>F</kbd>
                 <Moon size={19} />
               </div>
-              <h3>Made for watching on a Mac</h3>
+              <h3>Use keyboard and media controls</h3>
               <p>
                 Use media keys and macOS Now Playing. Jump 10 seconds, scrub, or
                 adjust volume. Controls and cursor hide together, and the

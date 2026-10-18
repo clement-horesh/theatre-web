@@ -1,36 +1,42 @@
-import { ArrowRight, Check, FileVideo, Folder, Volume2 } from "lucide-react";
+import { ArrowRight, Check, FileVideo, Folder } from "lucide-react";
 import Image from "next/image";
 
-export function TrackIllustration({ kind }: { kind: "subtitles" | "audio" }) {
+const playerCaptures = {
+  subtitles: {
+    src: "/images/theatre-subtitles.png",
+    width: 696,
+    height: 708,
+    alt: "Theatre subtitle appearance settings for position, size, and color.",
+  },
+  audio: {
+    src: "/images/theatre-audio.png",
+    width: 762,
+    height: 378,
+    alt: "Theatre audio menu with French and English audio tracks.",
+  },
+  output: {
+    src: "/images/theatre-airplay-pip.png",
+    width: 2144,
+    height: 1262,
+    alt: "Theatre’s native Picture in Picture and AirPlay controls below the window buttons.",
+  },
+};
+
+export function PlayerFeatureCapture({
+  kind,
+}: {
+  kind: keyof typeof playerCaptures;
+}) {
   return (
-    <div className="feature-visual track-visual" aria-hidden="true">
-      {kind === "subtitles" ? (
-        <div className="subtitle-demo">
-          <span className="subtitle-sample">Your subtitles.</span>
-          <div className="subtitle-options">
-            <span>Aa</span>
-            <span className="size-track" />
-            <i />
-            <i />
-            <i />
-          </div>
-        </div>
-      ) : (
-        <div className="audio-demo">
-          <span className="audio-label">
-            <Volume2 size={14} />
-            Audio
-          </span>
-          <span>
-            <Check size={13} />
-            English<span className="audio-codec">5.1</span>
-          </span>
-          <span>
-            <i />
-            French<span className="audio-codec">Stereo</span>
-          </span>
-        </div>
-      )}
+    <div className={`player-capture capture-${kind}`}>
+      <div className="player-capture-frame">
+        <Image
+          {...playerCaptures[kind]}
+          sizes={
+            kind === "output" ? "1140px" : kind === "audio" ? "600px" : "330px"
+          }
+        />
+      </div>
     </div>
   );
 }
